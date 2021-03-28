@@ -16,7 +16,7 @@
 
 
 
-<title>0323_b1934 | 응애 나 아기 ps붕</title>
+<title>0328_b11005 | 응애 나 아기 ps붕</title>
 
 
 
@@ -177,7 +177,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">0323_b1934</h1>
+            <h1 class="post-title">0328_b11005</h1>
             
                 <div class="post-meta">
                     
@@ -186,7 +186,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">3월 23, 2021&nbsp;&nbsp;14:56:29</a>
+                        Date: <a href="#">3월 28, 2021&nbsp;&nbsp;17:40:29</a>
                         </span>
                     
                     
@@ -195,11 +195,18 @@
         </header>
 
         <div class="post-content">
-            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 1934번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : 10분<br><a href="https://www.acmicpc.net/problem/1934" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1934</a>  </p>
-<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>두 자연수 A와 B가 주어졌을 때, A와 B의 최소공배수를 구하는 프로그램을 작성하시오.  </p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void LCM(int numA,int numB)</span><br><span class="line">&#123;</span><br><span class="line">	int addedNum &#x3D; numB;</span><br><span class="line">	while(addedNum % numA !&#x3D; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		addedNum +&#x3D; numB;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; addedNum &lt;&lt;&quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void solve()</span><br><span class="line">&#123;</span><br><span class="line">	int testCase,numA,numB;</span><br><span class="line">	cin &gt;&gt; testCase;</span><br><span class="line">	for(int i&#x3D;0;i&lt;testCase;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; numA &gt;&gt; numB;</span><br><span class="line">		LCM(numA,numB);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	solve();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 11005번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : 30분<br><a href="https://www.acmicpc.net/problem/11005" target="_blank" rel="noopener">https://www.acmicpc.net/problem/11005</a>  </p>
+<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>10진법 수 N이 주어진다. 이 수를 B진법으로 바꿔 출력하는 프로그램을 작성하시오.  </p>
+<p>10진법을 넘어가는 진법은 숫자로 표시할 수 없는 자리가 있다. 이런 경우에는 다음과 같이 알파벳 대문자를 사용한다.  </p>
+<p>A: 10, B: 11, …, F: 15, …, Y: 34, Z: 35  </p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void solve()</span><br><span class="line">&#123;</span><br><span class="line">	vector &lt;int&gt; v;</span><br><span class="line">	long long num,digit;</span><br><span class="line">	int result;</span><br><span class="line">	cin &gt;&gt; num &gt;&gt; digit;</span><br><span class="line">	while(num !&#x3D; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		v.push_back(num % digit);</span><br><span class="line">		num &#x2F;&#x3D; digit;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	vector&lt;int&gt;::reverse_iterator iter;</span><br><span class="line"></span><br><span class="line">	for(iter &#x3D; v.rbegin();iter !&#x3D; v.rend();iter++)</span><br><span class="line">	&#123;</span><br><span class="line"> 		if(*iter &gt;&#x3D; 10)</span><br><span class="line"> 		&#123;</span><br><span class="line"> 			cout &lt;&lt; (char(*iter - 10+&#39;A&#39;));</span><br><span class="line"> 		&#125;</span><br><span class="line"> 		else</span><br><span class="line"> 		&#123;</span><br><span class="line"> 			cout &lt;&lt; *iter;</span><br><span class="line"> 		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	solve();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><p>둘 중에 한 값을 A라고 했을 때 A는 계속 A를 더하면서 더해진 값 % B == 0인지 확인한다.     </p>
+<h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><p>우선 진법 변환을 하면서 결과를 저장한다<br>이후 저장된 결과를 끝에서 부터 조건(10이상은 알파벳 등)에 맞춰 출력한다  </p>
+<h1 id="배운-점-메모"><a href="#배운-점-메모" class="headerlink" title="배운 점, 메모"></a>배운 점, 메모</h1><p>c++ 벡터 문법적인 부분을 배웠다</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt;::reverse_iterator iter; &#x2F;&#x2F; 거꾸로 진행되는 iteration  </span><br><span class="line">for(iter &#x3D; v.rbegin();iter !&#x3D; v.rend();iter++) &#x2F;&#x2F; 인덱스 끝에서부터 인덱스 맨 앞까지 iteation 진행</span><br></pre></td></tr></table></figure>
+
+
+
 
         </div>
 
@@ -214,7 +221,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://praisebak.github.io/2021/03/23/0323_b9613/">https://praisebak.github.io/2021/03/23/0323_b9613/</a></span>
+                        <span><a href="https://praisebak.github.io/2021/03/28/0323_b9613/">https://praisebak.github.io/2021/03/28/0323_b9613/</a></span>
                     </p>
                 
                 
@@ -251,10 +258,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/03/23/0323_b1850/">B9613</a>
             
-            
-            <a class="next" rel="next" href="/2021/03/23/0323_b1934/">0323_b1934</a>
+            <a class="next" rel="next" href="/2021/03/28/0328_b11005/">0328_b11005</a>
             
         </section>
 
