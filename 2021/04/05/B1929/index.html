@@ -197,28 +197,10 @@
         <div class="post-content">
             <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 1929번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : 30분<br><a href="https://www.acmicpc.net/problem/1929" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1929</a>    </p>
 <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>M이상 N이하의 소수를 모두 출력하는 프로그램을 작성하시오.  </p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><p>#include <iostream><br>const int MAX = 1000001;<br>bool check[MAX];</p>
-<p>using namespace std;</p>
-<p>void solve()<br>{<br>    fill_n(check,MAX,false);<br>    check[1] = true;<br>    int M,N;</p>
-<pre><code>cin &gt;&gt; M &gt;&gt; N;
-for(int i=2;i&lt;=N;i++)
-{
-    for(int j=2; i*j &lt;= N;j++)
-    {
-        check[i*j] = true;
-    }
-}
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">const int MAX &#x3D; 1000001;</span><br><span class="line">bool check[MAX];</span><br><span class="line">	</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void solve()</span><br><span class="line">&#123;</span><br><span class="line">	fill_n(check,MAX,false);</span><br><span class="line">	check[1] &#x3D; true;</span><br><span class="line">	int M,N;</span><br><span class="line"></span><br><span class="line">	cin &gt;&gt; M &gt;&gt; N;</span><br><span class="line">	for(int i&#x3D;2;i&lt;&#x3D;N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for(int j&#x3D;2; i*j &lt;&#x3D; N;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			check[i*j] &#x3D; true;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	for(int i&#x3D;M;i&lt;&#x3D;N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(!check[i])</span><br><span class="line">		&#123;</span><br><span class="line">			cout &lt;&lt; i &lt;&lt;&quot;\n&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	solve();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-for(int i=M;i&lt;=N;i++)
-{
-    if(!check[i])
-    {
-        cout &lt;&lt; i &lt;&lt;&quot;\n&quot;;
-    }
-}</code></pre><p>}</p>
-<p>int main()<br>{<br>    solve();<br>}</p>
 <h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><p>문제를 읽고 일반적으로 생각하는 A-1숫자부터 2까지 나머지를 체크하는 방식은 시간초과가 뜰 것 같았다.<br>그 다음으로는 짝수인 경우가 많을 것이라 생각하여 숫자 (A-1 % 2) == 0 이면 break하도록하여 조금 더 개선했지만<br>이렇게는 시간복잡도는 줄어들지 않는다.<br>여기서 아예 내가 모르는 방법이 있구나 하여 검색해보았다.<br>찾아보니 에라스토테네스의 체라는 방법이 있었다<br>(A-1 % 2)에서 2 대신 2부터 최대 범위가 되기 전까지의 수를<br>2부터 곱한 것(2부터 하는 이유는 자기자신을 제외하기 위해)에 마킹을 한다.<br>연산을 다 마치고 나면 마킹이 되지 않은 것은 소수라는 의미이다.</p>
-<h1 id="배울-점-메모"><a href="#배울-점-메모" class="headerlink" title="배울 점, 메모"></a>배울 점, 메모</h1><p>한 30분 생각하다 검색해보았는데 그럼 생각해볼만한 점이<br>내가 오랫동안 생각했다면 풀 수 있었을까?<br>두번째로 그렇게 오랫동안 생각한 것의 가치가 있는가?<br>지금 내가 내리는 결론은 나는 멍청하니까 양으로 때려 박아야한다는 것이다.  </p>
+<h1 id="배울-점-메모"><a href="#배울-점-메모" class="headerlink" title="배울 점, 메모"></a>배울 점, 메모</h1><p>한 30분 생각하다 검색해보았는데 그럼 생각해볼만한 점이<br>내가 오랫동안 생각했다면 풀 수 있었을까?<br>두번째로 그렇게 오랫동안 생각한 것의 가치가 있는가?<br>생각해본 결과 아직은 양으로 여러 유형의 문제를 풀고 생각 흐름을 익히는 것이 우선이라 생각된다.  </p>
 
         </div>
 
@@ -269,6 +251,8 @@ for(int i=M;i&lt;=N;i++)
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/04/05/B6588/">B6588</a>
             
             
             <a class="next" rel="next" href="/2021/04/02/B1978/">B1978</a>
