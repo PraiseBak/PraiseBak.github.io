@@ -16,7 +16,7 @@
 
 
 
-<title>B11653 | 응애.</title>
+<title>B10872 | 응애.</title>
 
 
 
@@ -177,7 +177,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">B11653</h1>
+            <h1 class="post-title">B10872</h1>
             
                 <div class="post-meta">
                     
@@ -186,7 +186,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">4월 5, 2021&nbsp;&nbsp;13:08:21</a>
+                        Date: <a href="#">4월 5, 2021&nbsp;&nbsp;13:20:19</a>
                         </span>
                     
                     
@@ -195,9 +195,9 @@
         </header>
 
         <div class="post-content">
-            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 11653번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : 10분<br><a href="https://www.acmicpc.net/problem/11653" target="_blank" rel="noopener">https://www.acmicpc.net/problem/11653</a>   </p>
-<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>소인수분해 구하기</p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void solve()</span><br><span class="line">&#123;</span><br><span class="line">	int num;</span><br><span class="line">	int modNum &#x3D; 2;</span><br><span class="line">	cin &gt;&gt; num;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	while(num !&#x3D; 1 &amp;&amp; num !&#x3D; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		if(num % modNum &#x3D;&#x3D; 0)</span><br><span class="line">		&#123;</span><br><span class="line">			cout &lt;&lt; modNum &lt;&lt; endl;</span><br><span class="line">			num &#x2F;&#x3D; modNum;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			modNum++;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	solve();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 10872번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : 10분<br><a href="https://www.acmicpc.net/problem/10872" target="_blank" rel="noopener">https://www.acmicpc.net/problem/10872</a>  </p>
+<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>0보다 크거나 같은 정수 N이 주어진다. 이때, N!을 출력하는 프로그램을 작성하시오.</p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void solve()</span><br><span class="line">&#123;</span><br><span class="line">	int num;</span><br><span class="line">	cin &gt;&gt; num;</span><br><span class="line">	if(num &#x3D;&#x3D; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; 1;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		int result &#x3D; 1;</span><br><span class="line">		while(num !&#x3D; 1)</span><br><span class="line">		&#123;</span><br><span class="line">			result *&#x3D; num ;</span><br><span class="line">			num--;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	solve(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><h1 id="배울-점-메모"><a href="#배울-점-메모" class="headerlink" title="배울 점, 메모"></a>배울 점, 메모</h1>
         </div>
 
@@ -212,7 +212,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://praisebak.github.io/2021/04/05/B11653/">https://praisebak.github.io/2021/04/05/B11653/</a></span>
+                        <span><a href="https://praisebak.github.io/2021/04/05/B10872/">https://praisebak.github.io/2021/04/05/B10872/</a></span>
                     </p>
                 
                 
@@ -249,10 +249,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/04/05/B10872/">B10872</a>
+                <a class="prev" rel="prev" href="/2021/04/05/B1676/">B1676</a>
             
             
-            <a class="next" rel="next" href="/2021/04/05/B6588/">B6588</a>
+            <a class="next" rel="next" href="/2021/04/05/B11653/">B11653</a>
             
         </section>
 
