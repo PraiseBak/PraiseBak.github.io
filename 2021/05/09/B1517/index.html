@@ -16,7 +16,7 @@
 
 
 
-<title>B2447 | 응애</title>
+<title>B1517 | 응애</title>
 
 
 
@@ -177,7 +177,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">B2447</h1>
+            <h1 class="post-title">B1517</h1>
             
                 <div class="post-meta">
                     
@@ -186,7 +186,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">5월 6, 2021&nbsp;&nbsp;9:53:33</a>
+                        Date: <a href="#">5월 9, 2021&nbsp;&nbsp;17:48:34</a>
                         </span>
                     
                     
@@ -195,20 +195,11 @@
         </header>
 
         <div class="post-content">
-            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 2447번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : 120분<br><a href="https://www.acmicpc.net/problem/2447" target="_blank" rel="noopener">https://www.acmicpc.net/problem/2447</a>     </p>
-<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>N이 3보다 클 경우, 크기 N의 패턴은 공백으로 채워진 가운데의 (N/3)×(N/3) 정사각형을 크기 N/3의 패턴으로 둘러싼 형태이다.<br>예를 들어 N이 27의 패턴은 예제 출력 1과 같다.    </p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void printStar(int i,int j,int n)</span><br><span class="line">&#123;</span><br><span class="line">	if((i &#x2F;n) % 3 &#x3D;&#x3D; 1 &amp;&amp; (j &#x2F;n)% 3 &#x3D;&#x3D;1)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot; &quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		if(n &#x3D;&#x3D; 1)</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;*&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			printStar(i,j,n&#x2F;3);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void solve()</span><br><span class="line">&#123;</span><br><span class="line">	int n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for(int j&#x3D;0;j&lt;n;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			printStar(i,j,n);</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	solve();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><ol>
-<li>분할은 N에서 3씩 나누면서 3 혹은 1에서 출력을 하는 식으로 풀 수 있음.       </li>
-<li>출력은 한 줄씩 해야하는 방향으로 구현해야 함.    </li>
-<li>중간의 비어있는 별 모양은 예외처리 할 것.</li>
-</ol>
-<h1 id="배울-점-메모"><a href="#배울-점-메모" class="headerlink" title="배울 점, 메모"></a>배울 점, 메모</h1><p>분할에 있어서 출력하는 조건문이 처리를 어떻게 할 지 고민했는데 결국 1시간 반이 지나서 인터넷에서 찾아봤다.<br>문제를 잘 풀기 위해서 다음을 계속 생각해야함.    </p>
-<ol>
-<li>분할을 어떻게 구현할 지 생각해야함.    </li>
-<li>1 이루고자 하는 목적을 분할함으로서 어떤 이점이 있는지 생각</li>
-<li>어떤식으로 합칠 것인지 생각   </li>
-</ol>
+            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 1517번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : ?분<br><a href="https://www.acmicpc.net/problem/1517" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1517</a>     </p>
+<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>버블소트의 스왑을 몇번 일어나는지 체크하라   </p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><p><a href="https://justicehui.github.io/ps/2019/04/23/BOJ1517/" target="_blank" rel="noopener">https://justicehui.github.io/ps/2019/04/23/BOJ1517/</a><br>예전 코드가 간단해서 참고하였던 기억이 난다.</p>
+<h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><p>문제 설명에서는 버블소트가 있어서 버블소트로 풀려고 할 수 있지만<br>시간초과를 보면 그럴 이유가 없음<br>따라서 분할 정복을 사용하게되면 곧 합병 정렬로 귀결됨<br>합병 정렬의 과정 중에서 버블정렬의 오른쪽보다 왼쪽 값이 크면 스왑이 발생하는데,<br>합병 정렬에서 conquer에서 왼쪽 값이 큰 경우 스왑 발생을 판단하면 되는 문제   </p>
+<h1 id="배울-점-메모"><a href="#배울-점-메모" class="headerlink" title="배울 점, 메모"></a>배울 점, 메모</h1><p>학부 2학년 알고리즘 과제에서 풀어보라고 하여 풀어본 문제여서 기억이 났다.<br>그때도 풀이를 보고 풀었던 기억이 난다.</p>
 
         </div>
 
@@ -223,7 +214,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://praisebak.github.io/2021/05/06/B2447/">https://praisebak.github.io/2021/05/06/B2447/</a></span>
+                        <span><a href="https://praisebak.github.io/2021/05/09/B1517/">https://praisebak.github.io/2021/05/09/B1517/</a></span>
                     </p>
                 
                 
@@ -260,10 +251,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/05/09/B2261/">B2261</a>
+                <a class="prev" rel="prev" href="/2021/05/09/B2448/">B2448</a>
             
             
-            <a class="next" rel="next" href="/2021/05/06/B1992/">B1992</a>
+            <a class="next" rel="next" href="/2021/05/09/B2261/">B2261</a>
             
         </section>
 
