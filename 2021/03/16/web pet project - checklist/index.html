@@ -16,7 +16,7 @@
 
 
 
-<title>SEGMENT TREE | 응애</title>
+<title>Web Pet Project - Checklist | 응애</title>
 
 
 
@@ -177,7 +177,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">SEGMENT TREE</h1>
+            <h1 class="post-title">Web Pet Project - Checklist</h1>
             
                 <div class="post-meta">
                     
@@ -186,85 +186,37 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">3월 22, 2021&nbsp;&nbsp;21:22:00</a>
+                        Date: <a href="#">3월 16, 2021&nbsp;&nbsp;23:31:49</a>
                         </span>
                     
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/pet-project/">pet project</a>
+                            
+                                <a href="/categories/pet-project/pet-project-web/">pet project:web</a>
+                            
+                        </span>
                     
                 </div>
             
         </header>
 
         <div class="post-content">
-            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>segment tree 자료구조를 공부하고 정리한다.</p>
-<h1 id="공부하게-된-배경"><a href="#공부하게-된-배경" class="headerlink" title="공부하게 된 배경"></a>공부하게 된 배경</h1><p>백준 1168 문제를 O(n^2)방법으로 풀었는데 시간초과가 발생하여<br>더 좋은 풀이 방법을 찾지 못하던 중<br>찾아보니 segment tree를 이용하면 O(NlogN)으로 풀 수 있다는 것을 발견하고<br>segment tree를 알아보게 되었다.</p>
-<h1 id="segment-tree-개요"><a href="#segment-tree-개요" class="headerlink" title="segment tree 개요"></a>segment tree 개요</h1><p>segment tree는 일반적으로 트리 자체에 구간합을 가지고 있다.<br>루트가 모든 합, 루트의 왼쪽에는 0~N/2까지,<br>루트의 오른쪽은 N/2+1 ~ N-1까지의 구간 합을 가지는 식으로 트리가 구성된다.<br>트리의 특징 상 필요한 합을 탐색하는데 시간복잡도는 O(logn)으로 선형적 자료구조에서 보다 빠름을 알 수 있다.  </p>
-<h1 id="segement-tree-코드"><a href="#segement-tree-코드" class="headerlink" title="segement tree 코드"></a>segement tree 코드</h1><pre><code>#include &lt;iostream&gt;
-using namespace std;
-const int MAX = 10001;
-int arr[MAX];
-int N;
-int tree[MAX];
+            <h1 id="checklist"><a href="#checklist" class="headerlink" title="checklist"></a>checklist</h1><ol>
+<li><p>study js and make test webpage (doens’t need to be look good)  </p>
+<ul>
+<li>i don&#39;t know js all literally. should study js from the start</li>
+<li>i don&#39;t like designing at all so.. i don’t know maybe just make seperated block and few explaning that what this part would have to do</li>
+</ul>
+</li>
+<li><p>code backend(with python or java or C++ or C)    </p>
+</li>
+<li><p>adding function from ideas</p>
+</li>
+</ol>
 
-void init()
-{
-    cin &gt;&gt; N;
-    for(int i=0;i&lt;N;i++)
-    {
-        cin &gt;&gt; arr[i];
-    }
-}
-
-int makeSegmentTree(int start,int end,int node)
-{
-    if(start == end)
-    {
-        return tree[node] = arr[node];
-    }
-    int mid = (start+mid)/2;
-    return tree[node] = makeSegmentTree(start,mid,node * 2) + makeSegmentTree(mid+1,end,node * 2 + 1);
-
-}
-
-int sumSegmentTree(int start,int end,int node,int left,int right)
-{
-    if(left &gt; end || right &lt; start)
-    {
-        return 0;
-    }
-    //구간에 충족한다면 더 들어갈 필요 없이 리턴  
-    if(left &lt;= start &amp;&amp; end &lt;= right)
-    {
-        return tree[node];
-    }
-    int mid = (start + end)/2;
-    return sumSegmentTree(start,mid,node*2,left,right) + sumSegmentTree(mid+1,end,node*2+1,left,right);
-}
-
-void updateSegmentTree(int start,int end,int node,int changeVal,int idx)
-{
-    if(start &gt; idx || end &lt; idx)
-    {
-        return;
-    }
-    tree[node] += changeVal;
-    //마지막 구간을 업데이트 하고 나면 더 깊게 들어갈 필요 없이 리턴
-    if(start == end)
-    {
-        return;
-    }
-    int mid = (start + end) / 2;
-    updateSegmentTree(start,mid,node*2,changeVal,idx);
-    updateSegmentTree(mid+1,end,node*2+1,changeVal,idx);
-}
-
-int main()
-{
-    init();
-    makeSegmentTree(0,N-1,1);
-
-}
-
-</code></pre>
         </div>
 
         
@@ -278,7 +230,7 @@ int main()
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://praisebak.github.io/2021/03/22/0322_segementTree/">https://praisebak.github.io/2021/03/22/0322_segementTree/</a></span>
+                        <span><a href="https://praisebak.github.io/2021/03/16/web%20pet%20project%20-%20checklist/">https://praisebak.github.io/2021/03/16/web%20pet%20project%20-%20checklist/</a></span>
                     </p>
                 
                 
@@ -302,7 +254,9 @@ int main()
                 <span class="tag">
                     
                     
-                        <a href="/tags/algorithm/"># algorithm</a>
+                        <a href="/tags/web-pet-project/"># web pet project</a>
+                    
+                        <a href="/tags/pet-project/"># pet project</a>
                     
                         
                 </span>
@@ -315,10 +269,10 @@ int main()
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/03/22/0322_b2609/">B2609</a>
+                <a class="prev" rel="prev" href="/2021/03/16/0316_graph_b1991/">Graph B1991</a>
             
             
-            <a class="next" rel="next" href="/2021/03/22/0322_b1168/">B1168</a>
+            <a class="next" rel="next" href="/2021/03/15/0315_graph_b2146/">Graph B2146</a>
             
         </section>
 

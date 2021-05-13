@@ -16,7 +16,7 @@
 
 
 
-<title>B1929 | 응애</title>
+<title>B2609 | 응애</title>
 
 
 
@@ -177,7 +177,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">B1929</h1>
+            <h1 class="post-title">B2609</h1>
             
                 <div class="post-meta">
                     
@@ -186,7 +186,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">4월 5, 2021&nbsp;&nbsp;17:06:58</a>
+                        Date: <a href="#">3월 23, 2021&nbsp;&nbsp;0:56:00</a>
                         </span>
                     
                     
@@ -195,12 +195,11 @@
         </header>
 
         <div class="post-content">
-            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 1929번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : 30분<br><a href="https://www.acmicpc.net/problem/1929" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1929</a>    </p>
-<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>M이상 N이하의 소수를 모두 출력하는 프로그램을 작성하시오.  </p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">const int MAX &#x3D; 1000001;</span><br><span class="line">bool check[MAX];</span><br><span class="line">	</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void solve()</span><br><span class="line">&#123;</span><br><span class="line">	fill_n(check,MAX,false);</span><br><span class="line">	check[1] &#x3D; true;</span><br><span class="line">	int M,N;</span><br><span class="line"></span><br><span class="line">	cin &gt;&gt; M &gt;&gt; N;</span><br><span class="line">	for(int i&#x3D;2;i&lt;&#x3D;N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for(int j&#x3D;2; i*j &lt;&#x3D; N;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			check[i*j] &#x3D; true;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	for(int i&#x3D;M;i&lt;&#x3D;N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(!check[i])</span><br><span class="line">		&#123;</span><br><span class="line">			cout &lt;&lt; i &lt;&lt;&quot;\n&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	solve();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 2609번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : ???<br><a href="https://www.acmicpc.net/problem/2609" target="_blank" rel="noopener">https://www.acmicpc.net/problem/2609</a>  </p>
+<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>두 개의 자연수를 입력받아 최대 공약수와 최소 공배수를 출력하는 프로그램을 작성하시오.   </p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void LCM(int num1,int num2,int gcd)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; ((num1 * num2) &#x2F; gcd) &lt;&lt; &quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void GCD(int num1,int num2)</span><br><span class="line">&#123;	</span><br><span class="line">	int tmpNum1 &#x3D; num1;</span><br><span class="line">	int tmpNum2 &#x3D; num2;</span><br><span class="line">	while(tmpNum2 !&#x3D; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		int r &#x3D; tmpNum1 % tmpNum2;</span><br><span class="line">		tmpNum1 &#x3D; tmpNum2;</span><br><span class="line">		tmpNum2 &#x3D; r;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; tmpNum1 &lt;&lt; endl;</span><br><span class="line">	LCM(num1,num2,tmpNum1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void solve()</span><br><span class="line">&#123;</span><br><span class="line">	int num1,num2;</span><br><span class="line">	cin &gt;&gt; num1 &gt;&gt; num2;</span><br><span class="line">	GCD(num1,num2);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	solve();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><p>문제를 읽고 일반적으로 생각하는 A-1숫자부터 2까지 나머지를 체크하는 방식은 시간초과가 뜰 것 같았다.<br>그 다음으로는 짝수인 경우가 많을 것이라 생각하여 숫자 (A-1 % 2) == 0 이면 break하도록하여 조금 더 개선했지만<br>이렇게는 시간복잡도는 줄어들지 않는다.<br>여기서 아예 내가 모르는 방법이 있구나 하여 검색해보았다.<br>찾아보니 에라토스테네스의 체라는 방법이 있었다<br>(A-1 % 2)에서 2 대신 2부터 최대 범위가 되기 전까지의 수를<br>2부터 곱한 것(2부터 하는 이유는 자기자신을 제외하기 위해)에 마킹을 한다.<br>연산을 다 마치고 나면 마킹이 되지 않은 것은 소수라는 의미이다.</p>
-<h1 id="배울-점-메모"><a href="#배울-점-메모" class="headerlink" title="배울 점, 메모"></a>배울 점, 메모</h1><p>이번 문제는 한 30분 생각하다 검색해서 정답을 알게 된 문제인데<br>내 스스로 생각하여 완벽하게 풀지 못한 것이 마음에 걸렸다.<br>내가 오랫동안 생각했다면 풀 수 있었을까?<br>오랫동안 생각했다면 그럴만한 가치가 있는가?라는 생각이 곧 떠올랐다.<br>스스로 생각해본 결과 1시간 이상 넘어간다면 모르는 것으로 간주하고<br>여러 유형을 배우고 익히는 것이 먼저라는 결론이 나왔다.<br>항상 스스로 할려고 하는 것은 나쁜게 아니지만,<br>엄청나게 많은 문제를 풀기 위해서는 조금 다르게 생각해야 할 것 같다<br>결과론적으로 생각해봤을 때 알고리즘을 잘하는 방법은 많이 풀어보는 수 밖에 없기 때문에<br>오랫동안 생각했다면 풀 수 있었더라도, 문제를 풀지 못해 스스로에게 실망하더라도<br>좌절한 시간조차도 노력으로 나중의 나에게 돌려주면 된다고 생각한다.</p>
+<h1 id="소감-및-메모"><a href="#소감-및-메모" class="headerlink" title="소감 및 메모"></a>소감 및 메모</h1><p>예전에 배웠던 알고리즘인데 기억이 안남,,ㅋ<br>최소공배수는 a * b / gcd인 점<br>최대공약수는 그..네..외우죠,,ㅋ 유클리드 호제법입니다..!</p>
 
         </div>
 
@@ -215,7 +214,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://praisebak.github.io/2021/04/05/0406_B1929/">https://praisebak.github.io/2021/04/05/0406_B1929/</a></span>
+                        <span><a href="https://praisebak.github.io/2021/03/22/0322_b2609/">https://praisebak.github.io/2021/03/22/0322_b2609/</a></span>
                     </p>
                 
                 
@@ -252,10 +251,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/04/05/0406_B6588/">B6588</a>
+                <a class="prev" rel="prev" href="/2021/03/23/0323_b1934/">B1934</a>
             
             
-            <a class="next" rel="next" href="/2021/04/02/0406_B1978/">B1978</a>
+            <a class="next" rel="next" href="/2021/03/22/0322_segementTree/">SEGMENT TREE</a>
             
         </section>
 
