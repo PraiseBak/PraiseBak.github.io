@@ -16,7 +16,7 @@
 
 
 
-<title>B11005 | 응애</title>
+<title>Pet Project Web 구상 - 넷플릭스, 왓챠의 프로그램 업데이트 현황 확인 | 응애</title>
 
 
 
@@ -177,7 +177,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">B11005</h1>
+            <h1 class="post-title">Pet Project Web 구상 - 넷플릭스, 왓챠의 프로그램 업데이트 현황 확인</h1>
             
                 <div class="post-meta">
                     
@@ -186,7 +186,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">3월 28, 2021&nbsp;&nbsp;17:40:29</a>
+                        Date: <a href="#">5월 16, 2021&nbsp;&nbsp;18:31:16</a>
                         </span>
                     
                     
@@ -195,18 +195,18 @@
         </header>
 
         <div class="post-content">
-            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 11005번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : 30분<br><a href="https://www.acmicpc.net/problem/11005" target="_blank" rel="noopener">https://www.acmicpc.net/problem/11005</a>  </p>
-<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>10진법 수 N이 주어진다. 이 수를 B진법으로 바꿔 출력하는 프로그램을 작성하시오.  </p>
-<p>10진법을 넘어가는 진법은 숫자로 표시할 수 없는 자리가 있다. 이런 경우에는 다음과 같이 알파벳 대문자를 사용한다.  </p>
-<p>A: 10, B: 11, …, F: 15, …, Y: 34, Z: 35  </p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void solve()</span><br><span class="line">&#123;</span><br><span class="line">	vector &lt;int&gt; v;</span><br><span class="line">	long long num,digit;</span><br><span class="line">	int result;</span><br><span class="line">	cin &gt;&gt; num &gt;&gt; digit;</span><br><span class="line">	while(num !&#x3D; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		v.push_back(num % digit);</span><br><span class="line">		num &#x2F;&#x3D; digit;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	vector&lt;int&gt;::reverse_iterator iter;</span><br><span class="line"></span><br><span class="line">	for(iter &#x3D; v.rbegin();iter !&#x3D; v.rend();iter++)</span><br><span class="line">	&#123;</span><br><span class="line"> 		if(*iter &gt;&#x3D; 10)</span><br><span class="line"> 		&#123;</span><br><span class="line"> 			cout &lt;&lt; (char(*iter - 10+&#39;A&#39;));</span><br><span class="line"> 		&#125;</span><br><span class="line"> 		else</span><br><span class="line"> 		&#123;</span><br><span class="line"> 			cout &lt;&lt; *iter;</span><br><span class="line"> 		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	solve();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><p>우선 진법 변환을 하면서 결과를 저장한다<br>이후 저장된 결과를 끝에서 부터 조건(10이상은 알파벳 등)에 맞춰 출력한다  </p>
-<h1 id="배운-점-메모"><a href="#배운-점-메모" class="headerlink" title="배운 점, 메모"></a>배운 점, 메모</h1><p>c++ 벡터 문법적인 부분을 배웠다</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt;::reverse_iterator iter; &#x2F;&#x2F; 거꾸로 진행되는 iteration  </span><br><span class="line">for(iter &#x3D; v.rbegin();iter !&#x3D; v.rend();iter++) &#x2F;&#x2F; 인덱스 끝에서부터 인덱스 맨 앞까지 iteation 진행</span><br></pre></td></tr></table></figure>
-
-
-
+            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>웹 기반 펫 프로젝트에 대한 목표를 정리한다.<br>실제 상용화할지는 모르겠지만 웹 기반으로 한 몇가지 서비스를 만들어 보려고 한다.<br>사실 이전에 회원가입, 로그인이 가능한 메모장 기능이 가능한 웹을 만들었는데 대충 만들어보니 다음과 같이 나왔다.    </p>
+<p><img src="https://github.com/PraiseBak/PraiseBak.github.io/blob/master/img/%EB%A9%94%EB%AA%A8%EC%9B%B9.PNG?raw=true" alt="메모웹"><br>이 프로젝트는 메모한 문서들을 pc가 바뀔때마다 pull, push 하는 것이 귀찮아서 웹에서 로그인으로 관리하면 좋겠다 생각해서 만든 프로젝트인데<br>실제로 웹 서비스를 하지않아 사용은 안하고있는 상태이다.   </p>
+<p>여기에 추가로 넷플릭스나 왓챠에서 상영중인 프로그램들을 내가 즐겨찾기하고<br>즐겨찾기한 프로그램들의 회차라던지 최근에 나온 회차같은 정보들을 한눈에 볼 수 있도록 하는 기능을 추가할려고 한다.   </p>
+<h1 id="목표"><a href="#목표" class="headerlink" title="목표"></a>목표</h1><p>실제 상용화할지는 모르겠지만 웹 기반으로 한 몇가지 서비스를 만들어 보려고 한다.   </p>
+<ol>
+<li>넷플릭스, 왓챠에서 프로그램 목록을 검색(크롤링)    </li>
+<li>검색한 프로그램을 즐겨찾기   </li>
+<li>홈페이지에서는 항상 즐겨찾기한 프로그램들을 한눈에 볼 수 있음    </li>
+</ol>
+<h1 id="만들게-된-계기"><a href="#만들게-된-계기" class="headerlink" title="만들게 된 계기"></a>만들게 된 계기</h1><ol>
+<li>넷플릭스에서 프로그램 회차가 나온 현황을 알아볼려면<br>직접 눌러서 확인하는것이 불편해서 만들고자 하였다.</li>
+</ol>
 
         </div>
 
@@ -221,7 +221,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://praisebak.github.io/2021/03/28/0328_b11005/">https://praisebak.github.io/2021/03/28/0328_b11005/</a></span>
+                        <span><a href="https://praisebak.github.io/2021/05/16/Pet-Project-Web/">https://praisebak.github.io/2021/05/16/Pet-Project-Web/</a></span>
                     </p>
                 
                 
@@ -245,7 +245,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/algorithm/"># algorithm</a>
+                        <a href="/tags/pet-project/"># pet project</a>
                     
                         
                 </span>
@@ -258,10 +258,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/03/28/B1373/">B1373</a>
+                <a class="prev" rel="prev" href="/2021/05/17/B2873/">B2873</a>
             
             
-            <a class="next" rel="next" href="/2021/03/28/0323_b9613/">B9613</a>
+            <a class="next" rel="next" href="/2021/05/12/B11399/">B11399</a>
             
         </section>
 

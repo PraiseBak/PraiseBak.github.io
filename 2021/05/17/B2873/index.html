@@ -16,7 +16,7 @@
 
 
 
-<title>B11005 | 응애</title>
+<title>B2873 | 응애</title>
 
 
 
@@ -177,7 +177,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">B11005</h1>
+            <h1 class="post-title">B2873</h1>
             
                 <div class="post-meta">
                     
@@ -186,7 +186,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">3월 28, 2021&nbsp;&nbsp;17:40:29</a>
+                        Date: <a href="#">5월 17, 2021&nbsp;&nbsp;19:51:19</a>
                         </span>
                     
                     
@@ -195,18 +195,18 @@
         </header>
 
         <div class="post-content">
-            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 11005번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : 30분<br><a href="https://www.acmicpc.net/problem/11005" target="_blank" rel="noopener">https://www.acmicpc.net/problem/11005</a>  </p>
-<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>10진법 수 N이 주어진다. 이 수를 B진법으로 바꿔 출력하는 프로그램을 작성하시오.  </p>
-<p>10진법을 넘어가는 진법은 숫자로 표시할 수 없는 자리가 있다. 이런 경우에는 다음과 같이 알파벳 대문자를 사용한다.  </p>
-<p>A: 10, B: 11, …, F: 15, …, Y: 34, Z: 35  </p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void solve()</span><br><span class="line">&#123;</span><br><span class="line">	vector &lt;int&gt; v;</span><br><span class="line">	long long num,digit;</span><br><span class="line">	int result;</span><br><span class="line">	cin &gt;&gt; num &gt;&gt; digit;</span><br><span class="line">	while(num !&#x3D; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		v.push_back(num % digit);</span><br><span class="line">		num &#x2F;&#x3D; digit;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	vector&lt;int&gt;::reverse_iterator iter;</span><br><span class="line"></span><br><span class="line">	for(iter &#x3D; v.rbegin();iter !&#x3D; v.rend();iter++)</span><br><span class="line">	&#123;</span><br><span class="line"> 		if(*iter &gt;&#x3D; 10)</span><br><span class="line"> 		&#123;</span><br><span class="line"> 			cout &lt;&lt; (char(*iter - 10+&#39;A&#39;));</span><br><span class="line"> 		&#125;</span><br><span class="line"> 		else</span><br><span class="line"> 		&#123;</span><br><span class="line"> 			cout &lt;&lt; *iter;</span><br><span class="line"> 		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	solve();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><p>우선 진법 변환을 하면서 결과를 저장한다<br>이후 저장된 결과를 끝에서 부터 조건(10이상은 알파벳 등)에 맞춰 출력한다  </p>
-<h1 id="배운-점-메모"><a href="#배운-점-메모" class="headerlink" title="배운 점, 메모"></a>배운 점, 메모</h1><p>c++ 벡터 문법적인 부분을 배웠다</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt;::reverse_iterator iter; &#x2F;&#x2F; 거꾸로 진행되는 iteration  </span><br><span class="line">for(iter &#x3D; v.rbegin();iter !&#x3D; v.rend();iter++) &#x2F;&#x2F; 인덱스 끝에서부터 인덱스 맨 앞까지 iteation 진행</span><br></pre></td></tr></table></figure>
-
-
-
+            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 2873번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : ?분<br><a href="https://www.acmicpc.net/problem/2873" target="_blank" rel="noopener">https://www.acmicpc.net/problem/2873</a>     </p>
+<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>상근이는 우리나라에서 가장 유명한 놀이 공원을 운영하고 있다. 이 놀이 공원은 야외에 있고, 다양한 롤러코스터가 많이 있다.</p>
+<p>어느 날 벤치에 앉아있던 상근이는 커다란 황금을 발견한 기분이 들었다. 자신의 눈 앞에 보이는 이 부지를 구매해서 롤러코스터를 만든다면, 세상에서 가장 재미있는 롤러코스터를 만들 수 있다고 생각했다.</p>
+<p>이 부지는 직사각형 모양이고, 상근이는 R행 C열의 표 모양으로 나누었다. 롤러코스터는 가장 왼쪽 위 칸에서 시작할 것이고, 가장 오른쪽 아래 칸에서 도착할 것이다. 롤러코스터는 현재 있는 칸과 위, 아래, 왼쪽, 오른쪽으로 인접한 칸으로 이동할 수 있다. 각 칸은 한 번 방문할 수 있고, 방문하지 않은 칸이 있어도 된다.</p>
+<p>각 칸에는 그 칸을 지나갈 때, 탑승자가 얻을 수 있는 기쁨을 나타낸 숫자가 적혀있다. 롤러코스터를 탄 사람이 얻을 수 있는 기쁨은 지나간 칸의 기쁨의 합이다. 가장 큰 기쁨을 주는 롤러코스터는 어떻게 움직여야 하는지를     구하는 프로그램을 작성하시오.</p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">상근이는 우리나라에서 가장 유명한 놀이 공원을 운영하고 있다. 이 놀이 공원은 야외에 있고, 다양한 롤러코스터가 많이 있다.</span><br><span class="line"></span><br><span class="line">어느 날 벤치에 앉아있던 상근이는 커다란 황금을 발견한 기분이 들었다. 자신의 눈 앞에 보이는 이 부지를 구매해서 롤러코스터를 만든다면, 세상에서 가장 재미있는 롤러코스터를 만들 수 있다고 생각했다.</span><br><span class="line"></span><br><span class="line">이 부지는 직사각형 모양이고, 상근이는 R행 C열의 표 모양으로 나누었다. 롤러코스터는 가장 왼쪽 위 칸에서 시작할 것이고, 가장 오른쪽 아래 칸에서 도착할 것이다. 롤러코스터는 현재 있는 칸과 위, 아래, 왼쪽, 오른쪽으로 인접한 칸으로 이동할 수 있다. 각 칸은 한 번 방문할 수 있고, 방문하지 않은 칸이 있어도 된다.</span><br><span class="line"></span><br><span class="line">각 칸에는 그 칸을 지나갈 때, 탑승자가 얻을 수 있는 기쁨을 나타낸 숫자가 적혀있다. 롤러코스터를 탄 사람이 얻을 수 있는 기쁨은 지나간 칸의 기쁨의 합이다. 가장 큰 기쁨을 주는 롤러코스터는 어떻게 움직여야 하는지를 구하는 프로그램을 작성하시오.</span><br></pre></td></tr></table></figure>
+<h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><p>일단 당연히 모든 점을 순회할 수 있으면 가장 높은 점수가 나온다.<br>그래서 모든 점을 순회가능한 경우에는 모두 순회하는데<br>문제는 가로와 세로가 짝수인 경우에는 모두 순회할 수 없고 딱 한점을 피해서 가면 순회할 수 있어<br>그 딱 한점을 피해서 가야한다.<br>한 점을 피하는 건 우선 전체 점을 둘러보면서 가장 작은 점을 찾는다.<br>그 뒤가 어려운데, 그 점의 좌표를 기준으로 최대한 많은 점을 순회하며 바로 왼쪽에 도달한 다음,<br>왼쪽 아래 대각선으로 이동 오른쪽으로 이동 이후 마지막까지 순회하면 완성     </p>
+<h1 id="배울-점-메모"><a href="#배울-점-메모" class="headerlink" title="배울 점, 메모"></a>배울 점, 메모</h1><p>나는 이 문제를 자력으로 풀진 못했다.<br>모든 점을 순회하면 되는 두 경우는 생각했으나<br>가로 세로가 짝수인 경우에는 안된다는 것을 찾지 못했고 검색을 통해<br>알았지만, 실제로 구현할려고 생각하면 좀 복잡해서 이해하기도 힘들었다.<br>이 문제를 풀면서 부족했던 능력은  </p>
+<ol>
+<li>문제를 읽고 케이스별을 놓침(문제에 대한 시간을 많이 쓰지 않음) - 여러 케이스를 직접 만들어서 하나씩 해야함</li>
+<li>구현력 부족 - 많은 시간을 들여서 노력하는 수 밖에 없음  </li>
+</ol>
 
         </div>
 
@@ -221,7 +221,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://praisebak.github.io/2021/03/28/0328_b11005/">https://praisebak.github.io/2021/03/28/0328_b11005/</a></span>
+                        <span><a href="https://praisebak.github.io/2021/05/17/B2873/">https://praisebak.github.io/2021/05/17/B2873/</a></span>
                     </p>
                 
                 
@@ -258,10 +258,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/03/28/B1373/">B1373</a>
             
-            
-            <a class="next" rel="next" href="/2021/03/28/0323_b9613/">B9613</a>
+            <a class="next" rel="next" href="/2021/05/16/Pet-Project-Web/">Pet Project Web 구상 - 넷플릭스, 왓챠의 프로그램 업데이트 현황 확인</a>
             
         </section>
 
