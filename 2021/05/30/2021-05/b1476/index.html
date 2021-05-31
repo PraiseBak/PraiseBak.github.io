@@ -16,7 +16,7 @@
 
 
 
-<title>B1373 | 응애</title>
+<title>B1476 | 응애</title>
 
 
 
@@ -177,7 +177,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">B1373</h1>
+            <h1 class="post-title">B1476</h1>
             
                 <div class="post-meta">
                     
@@ -186,7 +186,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">3월 28, 2021&nbsp;&nbsp;23:50:00</a>
+                        Date: <a href="#">5월 30, 2021&nbsp;&nbsp;23:00:00</a>
                         </span>
                     
                     
@@ -195,12 +195,17 @@
         </header>
 
         <div class="post-content">
-            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 1373번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : 10분<br><a href="https://www.acmicpc.net/problem/1373" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1373</a>  </p>
-<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>2진수가 주어졌을 때, 8진수로 변환하는 프로그램을 작성하시오.</p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void solve()</span><br><span class="line">&#123;</span><br><span class="line">	string binary;</span><br><span class="line">	int countThree &#x3D; 0; </span><br><span class="line">	int digit &#x3D; 1;</span><br><span class="line">	int result &#x3D; 0;</span><br><span class="line">	cin &gt;&gt; binary;</span><br><span class="line">	stack&lt;int&gt; s;</span><br><span class="line">	for(int i&#x3D;binary.size()-1;i&gt;&#x3D;0;--i)</span><br><span class="line">	&#123;</span><br><span class="line">		result +&#x3D; (binary[i] - &#39;0&#39;) * digit;</span><br><span class="line">		countThree++;</span><br><span class="line">		digit*&#x3D;2;</span><br><span class="line">		if(countThree &#x3D;&#x3D; 3)</span><br><span class="line">		&#123;</span><br><span class="line">			s.push(result % 8);</span><br><span class="line">			countThree &#x3D; 0;</span><br><span class="line">			result &#x3D; 0;</span><br><span class="line">			digit &#x3D; 1;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if(countThree !&#x3D; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		s.push(result % 8);</span><br><span class="line">	&#125;</span><br><span class="line">	while(s.size()!&#x3D; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; s.top();</span><br><span class="line">		s.pop();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	ios_base :: sync_with_stdio(0);</span><br><span class="line">	cin.tie(0);</span><br><span class="line">	solve();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><p>2진수 입력 -&gt; 맨끝에서 부터 3개씩 카운트하며 결과값을 스택에 저장<br>카운트가 3개가 되지 않은 경우 -&gt; 정확히 떨어지지 않은 경우이므로 예외로 결과값 저장<br>저장된 스택에서 값 출력 = 정답</p>
-<h1 id="배울-점-메모"><a href="#배울-점-메모" class="headerlink" title="배울 점, 메모"></a>배울 점, 메모</h1><p>설계,문제 풀이법을 오래 생각할 수록 코드 작성은 간결해진다.<br>물론 코드를 작성하는중에만 생각나는 것들도 있기는 하다.</p>
+            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 1476번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : 20분<br><a href="https://www.acmicpc.net/problem/1476" target="_blank" rel="noopener">https://www.acmicpc.net/problem/1476</a>     </p>
+<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>준규가 사는 나라는 우리가 사용하는 연도와 다른 방식을 이용한다. 준규가 사는 나라에서는 수 3개를 이용해서 연도를 나타낸다. 각각의 수는 지구, 태양, 그리고 달을 나타낸다.</p>
+<p>지구를 나타내는 수를 E, 태양을 나타내는 수를 S, 달을 나타내는 수를 M이라고 했을 때, 이 세 수는 서로 다른 범위를 가진다. (1 ≤ E ≤ 15, 1 ≤ S ≤ 28, 1 ≤ M ≤ 19)</p>
+<p>우리가 알고있는 1년은 준규가 살고있는 나라에서는 1 1 1로 나타낼 수 있다. 1년이 지날 때마다, 세 수는 모두 1씩 증가한다. 만약, 어떤 수가 범위를 넘어가는 경우에는 1이 된다.</p>
+<p>예를 들어, 15년은 15 15 15로 나타낼 수 있다. 하지만, 1년이 지나서 16년이 되면 16 16 16이 아니라 1 16 16이 된다. 이유는 1 ≤ E ≤ 15 라서 범위를 넘어가기 때문이다.</p>
+<p>E, S, M이 주어졌고, 1년이 준규가 사는 나라에서 1 1 1일때, 준규가 사는 나라에서 E S M이 우리가 알고 있는 연도로 몇 년인지 구하는 프로그램을 작성하시오.</p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std; </span><br><span class="line"></span><br><span class="line">void solve()</span><br><span class="line">&#123;</span><br><span class="line">    int answerE &#x3D; 0,answerS &#x3D; 0,answerM &#x3D; 0;</span><br><span class="line">    int eMax &#x3D; 15;</span><br><span class="line">    int sMax &#x3D; 28;</span><br><span class="line">    int mMax &#x3D; 19;</span><br><span class="line">    int year &#x3D; 0;</span><br><span class="line">    int curE &#x3D; 0;</span><br><span class="line">    int curS &#x3D; 0;</span><br><span class="line">    int curM &#x3D; 0;</span><br><span class="line">    cin &gt;&gt; answerE &gt;&gt; answerS &gt;&gt; answerM;</span><br><span class="line">    while(1)</span><br><span class="line">    &#123;</span><br><span class="line">        curE++;</span><br><span class="line">        curS++;</span><br><span class="line">        curM++;</span><br><span class="line">        year++;</span><br><span class="line">        if(curE &gt; eMax)</span><br><span class="line">        &#123;</span><br><span class="line">            curE &#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        if(curS &gt; sMax)</span><br><span class="line">        &#123;</span><br><span class="line">            curS &#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        if(curM &gt; mMax)</span><br><span class="line">        &#123;</span><br><span class="line">            curM &#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        if(answerE &#x3D;&#x3D; curE &amp;&amp; answerS &#x3D;&#x3D; curS &amp;&amp; answerM &#x3D;&#x3D; curM)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; year;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    solve();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><ol>
+<li>뭔가 규칙성을 찾아서 풀기 보다는 그냥 문제의 조건에 맞춰 E,S,M 값과 년도를 늘려나가는데,<br>입력된 값과 현재 E,S,M이 일치하면 년도를 출력하면 되는 완전탐색 문제임.</li>
+</ol>
+<h1 id="배울-점-메모"><a href="#배울-점-메모" class="headerlink" title="배울 점, 메모"></a>배울 점, 메모</h1><p>완전탐색인 것을 알고 풀었기 때문에 쉬운 문제라고 생각함.<br>유형을 아직 익히는 것이기 때문에 유형과 문제를 1:1로 매칭시키는 것이 필요함.   </p>
 
         </div>
 
@@ -215,7 +220,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://praisebak.github.io/2021/03/28/B1373/">https://praisebak.github.io/2021/03/28/B1373/</a></span>
+                        <span><a href="https://praisebak.github.io/2021/05/30/2021-05/b1476/">https://praisebak.github.io/2021/05/30/2021-05/b1476/</a></span>
                     </p>
                 
                 
@@ -252,10 +257,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/04/01/B2089/">B2089</a>
             
-            
-            <a class="next" rel="next" href="/2021/03/28/0323_b9613/">B9613</a>
+            <a class="next" rel="next" href="/2021/05/30/2021-05/Pet-Project-web-add-search-dismiss/">Pet-Project-web_add_search_dissmiss</a>
             
         </section>
 
