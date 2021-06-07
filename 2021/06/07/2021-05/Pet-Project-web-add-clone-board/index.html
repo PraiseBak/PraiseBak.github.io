@@ -186,7 +186,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">6월 7, 2021&nbsp;&nbsp;21:35:08</a>
+                        Date: <a href="#">6월 8, 2021&nbsp;&nbsp;2:10:08</a>
                         </span>
                     
                     
@@ -203,15 +203,23 @@
 
         <div class="post-content">
             <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>웹에 클론코딩 페이지를 추가하기까지의 정리  </p>
-<h1 id="하려는-것"><a href="#하려는-것" class="headerlink" title="하려는 것"></a>하려는 것</h1><ul>
-<li>커뮤니티 사이트 clone coding    </li>
-<li>반려동물 기록 사이트 (고려중)</li>
+<h1 id="현황"><a href="#현황" class="headerlink" title="현황"></a>현황</h1><p><img src="https://raw.githubusercontent.com/PraiseBak/PetProject-Memo_Web/master/app/images/%EC%BA%A1%EC%B2%98.PNG" alt="main"><br>[게시판으로 가는 기능 추가]</p>
+<p><img src="https://raw.githubusercontent.com/PraiseBak/PetProject-Memo_Web/master/app/images/KakaoTalk_20210608_020635071.png" alt="current"><br>[게시판 페이지 추가]</p>
+<h1 id="추가-내용"><a href="#추가-내용" class="headerlink" title="추가 내용"></a>추가 내용</h1><p>main/clone_board.py 추가<br>template/main/clone_board.html 추가    </p>
+<h1 id="clone-board-html-코드"><a href="#clone-board-html-코드" class="headerlink" title="clone_board.html 코드"></a>clone_board.html 코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &#39;main&#x2F;clone_base.html&#39; %&#125;</span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line"></span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;container my-3&quot;&gt;</span><br><span class="line">            &lt;table class&#x3D;&quot;table&quot;&gt;</span><br><span class="line">                &lt;thead&gt;</span><br><span class="line">                &lt;tr class&#x3D;&quot;thead-dark&quot;&gt;</span><br><span class="line">                    &lt;th&gt;번호&lt;&#x2F;th&gt;</span><br><span class="line">                    &lt;th&gt;내용&lt;&#x2F;th&gt;</span><br><span class="line">                    &lt;!--th&gt;작성일시&lt;&#x2F;th!--&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">                &lt;&#x2F;thead&gt;</span><br><span class="line">                &lt;tbody&gt;</span><br><span class="line">                &#123;% if content_list %&#125;</span><br><span class="line">                &#123;% for content in content_list %&#125;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;&#123;&#123; loop.index &#125;&#125;&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;</span><br><span class="line">                        &#123;&#123; content[&#39;board_content&#39;] &#125;&#125;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line"></span><br><span class="line">                &#123;% endfor %&#125;</span><br><span class="line">                &#123;% else %&#125;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td colspan&#x3D;&quot;3&quot;&gt;너에게 받은만큼 더 행복해질게&lt;&#x2F;td&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">                &#123;% endif %&#125;</span><br><span class="line">                &lt;&#x2F;tbody&gt;</span><br><span class="line">            &lt;&#x2F;table&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="clone-board-html-설명"><a href="#clone-board-html-설명" class="headerlink" title="clone_board.html 설명"></a>clone_board.html 설명</h3><ul>
+<li>clone_board.py 파일에서 데이터베이스에서부터 입력한 내용 (board_content_list)을 가져와<br>html에 전달해주고 이를 모두 출력한다.<br>(참고 사이트 : <a href="https://wikidocs.net/81050" target="_blank" rel="noopener">https://wikidocs.net/81050</a>)  </li>
 </ul>
-<h1 id="초기-설정"><a href="#초기-설정" class="headerlink" title="초기 설정"></a>초기 설정</h1><p>main/clone_main.py 추가<br>template/main/clone_main.html 추가<br>template/main/clone_base.html 추가   </p>
-<h3 id="설명"><a href="#설명" class="headerlink" title="설명"></a>설명</h3><p>게시판, 글쓰기(사진업로드 가능) 등 기능을 추가한다.</p>
-<h1 id="앞으로-추가할-것"><a href="#앞으로-추가할-것" class="headerlink" title="앞으로 추가할 것"></a>앞으로 추가할 것</h1><ol>
-<li>게시판 기능  </li>
-<li>글쓰기 기능  </li>
+<h1 id="앞으로-추가할-것"><a href="#앞으로-추가할-것" class="headerlink" title="앞으로 추가할 것"></a>앞으로 추가할 것</h1><ol start="0">
+<li>기능 손보기<ol>
+<li>글쓴 시간 추가</li>
+<li>디자인 수정(부트스트랩 변경 예상)  </li>
+</ol>
+</li>
+<li>글쓰기</li>
+<li>수정</li>
+<li>삭제</li>
+<li>사진 업로드 기능</li>
 </ol>
 
         </div>
@@ -227,7 +235,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://praisebak.github.io/2021/06/07/2021-05/Pet-Project-web-add-clone-coding-page/">https://praisebak.github.io/2021/06/07/2021-05/Pet-Project-web-add-clone-coding-page/</a></span>
+                        <span><a href="https://praisebak.github.io/2021/06/07/2021-05/Pet-Project-web-add-clone-board/">https://praisebak.github.io/2021/06/07/2021-05/Pet-Project-web-add-clone-board/</a></span>
                     </p>
                 
                 
@@ -264,10 +272,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/06/07/2021-05/Pet-Project-web-add-clone-board/">Pet-Project-web-clone-coding</a>
             
-            
-            <a class="next" rel="next" href="/2021/05/30/2021-05/b1476/">B1476</a>
+            <a class="next" rel="next" href="/2021/06/07/2021-05/Pet-Project-web-add-clone-coding-page/">Pet-Project-web-clone-coding</a>
             
         </section>
 
