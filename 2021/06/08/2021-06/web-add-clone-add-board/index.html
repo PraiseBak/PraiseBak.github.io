@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="PraiseBak">
+
+
+    <meta name="subtitle" content="writing something note">
+
+
+    <meta name="description" content="wanna be a good at programming">
+
+
+
+<title>게시글 추가 기능 및 날짜 추가 | 응애</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">PraiseBak&#39;s Note</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">PraiseBak&#39;s Note</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">게시글 추가 기능 및 날짜 추가</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">PraiseBak</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">6월 9, 2021&nbsp;&nbsp;4:55:01</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/pet-project/">pet project</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>웹에 클론코딩 페이지를 추가하기까지의 정리  </p>
+<h1 id="현황"><a href="#현황" class="headerlink" title="현황"></a>현황</h1><p>게시글 추가와 게시글에 날짜를 추가하였다.<br><img src="https://raw.githubusercontent.com/PraiseBak/PetProject-Memo_Web/master/app/images/%EA%B8%80%EC%93%B0%EA%B8%B0_%EC%B6%94%EA%B0%80_%ED%99%94%EB%A9%B4.PNG" alt="게시글 화면">   </p>
+<p>[글쓰기 버튼 추가 및 작성일시 추가]<br><img src="https://raw.githubusercontent.com/PraiseBak/PetProject-Memo_Web/master/app/images/%EA%B8%80%EC%93%B0%EA%B8%B0_%ED%99%94%EB%A9%B4.png" alt="게시글 작성 화면"><br>[글쓰기 눌렀을 때 화면]   </p>
+<h1 id="소스-코드-수정-현황"><a href="#소스-코드-수정-현황" class="headerlink" title="소스 코드 수정 현황"></a>소스 코드 수정 현황</h1><ol>
+<li>clone_board.py</li>
+<li>board.html</li>
+</ol>
+<h3 id="clone-board-py-코드"><a href="#clone-board-py-코드" class="headerlink" title="clone_board.py 코드"></a>clone_board.py 코드</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">from threading import main_thread</span><br><span class="line">from flask import Blueprint, request, render_template, flash, redirect, url_for, g,session</span><br><span class="line">from app.module.dbModule import Database</span><br><span class="line">from app.forms.forms import ContentAddForm, UserAddCheck</span><br><span class="line">from datetime import datetime</span><br><span class="line"></span><br><span class="line">clone_board_bp &#x3D; Blueprint(&#39;clone_board&#39;,__name__,url_prefix&#x3D;&#39;&#x2F;clone_board&#39;)</span><br><span class="line"></span><br><span class="line">@clone_board_bp.route(&#39;&#x2F;list&#39;,methods&#x3D;[&#39;POST&#39;,&#39;GET&#39;])</span><br><span class="line">def list():</span><br><span class="line">    db &#x3D; Database()</span><br><span class="line">    content_list &#x3D; db.executeAll(&quot;SELECT * FROM board_content_table&quot;)</span><br><span class="line">    print(content_list)</span><br><span class="line">    return render_template(&#39;&#x2F;main&#x2F;board.html&#39;,content_list&#x3D;content_list)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@clone_board_bp.route(&#39;&#x2F;add&#39;,methods&#x3D;[&#39;POST&#39;,&#39;GET&#39;])</span><br><span class="line">def add():</span><br><span class="line">    form &#x3D; ContentAddForm()</span><br><span class="line">    title &#x3D; form.content_title.data</span><br><span class="line">    text &#x3D; form.content_text.data</span><br><span class="line">    if request.method &#x3D;&#x3D; &#39;POST&#39; and not form.validate_on_submit() and ((title &#x3D;&#x3D; &quot;&quot;) or (text &#x3D;&#x3D; &quot;&quot;)):</span><br><span class="line">        error &#x3D; &quot;데이터 양식이 맞지 않습니다&quot;</span><br><span class="line">        flash(error)</span><br><span class="line">    elif request.method &#x3D;&#x3D; &#39;POST&#39; and not((title &#x3D;&#x3D; &quot;&quot;) or (text &#x3D;&#x3D; &quot;&quot;)):</span><br><span class="line">        db &#x3D; Database()</span><br><span class="line">        db.execute(&quot;&quot;&quot;INSERT INTO board_content_table (board_content,board_content_title,write_time) VALUES (&#39;%s&#39;,&#39;%s&#39;,&#39;%s&#39;)&quot;&quot;&quot; % (text, title,datetime.now())) </span><br><span class="line">        db.commit()</span><br><span class="line">        return redirect(url_for(&quot;clone_board.list&quot;))</span><br><span class="line">        </span><br><span class="line">    return render_template(&#39;&#x2F;main&#x2F;board_add.html&#39;,form&#x3D;form)</span><br></pre></td></tr></table></figure>
+<h3 id="clone-board-py-설명"><a href="#clone-board-py-설명" class="headerlink" title="clone_board.py 설명"></a>clone_board.py 설명</h3><ol>
+<li>게시글 리스트를 보여주는 list 페이지와 게시글 추가 버튼을 눌렀을 때의 add 페이지로 분리     </li>
+<li>게시글 리스트 페이지에서는 항상 디비로부터 가져온 정보를 모두 출력함(아직 페이징 기능 미구현)   </li>
+<li>게시글 추가 페이지에서는 제목과 내용을 입력하면 데이터베이스에 추가함   <ul>
+<li>제목이나 내용을 입력하지 않으면 에러 출력함</li>
+</ul>
+</li>
+<li>데이터베이스에 제대로 입력됐다면 list 페이지로 재연결해줌<h3 id="clone-board-html-코드"><a href="#clone-board-html-코드" class="headerlink" title="clone_board.html 코드"></a>clone_board.html 코드</h3></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &#39;main&#x2F;clone_base.html&#39; %&#125;</span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line"></span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;container my-3&quot;&gt;</span><br><span class="line">            &lt;table class&#x3D;&quot;table&quot;&gt;</span><br><span class="line">                &lt;thead&gt;</span><br><span class="line">                &lt;tr class&#x3D;&quot;thead-dark&quot;&gt;</span><br><span class="line">                    &lt;th&gt;번호&lt;&#x2F;th&gt;</span><br><span class="line">                    &lt;th&gt;제목&lt;&#x2F;th&gt;</span><br><span class="line">                    &lt;th&gt;작성일시&lt;&#x2F;th&gt;</span><br><span class="line"></span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">                &lt;&#x2F;thead&gt;</span><br><span class="line">                &lt;tbody&gt;</span><br><span class="line">                &#123;% if content_list %&#125;</span><br><span class="line">                &#123;% for content in content_list %&#125;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;&#123;&#123; content[&#39;board_content_idx&#39;] &#125;&#125;&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;</span><br><span class="line">                        &#123;&#123; content[&#39;board_content&#39;] &#125;&#125;</span><br><span class="line">                    &lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;&#123;&#123; content[&#39;write_time&#39;] &#125;&#125;&lt;&#x2F;td&gt;</span><br><span class="line"></span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line"></span><br><span class="line">                </span><br><span class="line">            &lt;&#x2F;table&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;btns&quot;&gt;</span><br><span class="line">                &lt;li&gt;&lt;a href&#x3D;&quot;&#x2F;clone_board&#x2F;add&quot; class&#x3D;&quot;button big&quot;&gt;글쓰기&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            이하 생략</span><br></pre></td></tr></table></figure>
+<h3 id="clone-board-html-설명"><a href="#clone-board-html-설명" class="headerlink" title="clone_board.html 설명"></a>clone_board.html 설명</h3><ol>
+<li>리스트 페이지의 작성글 인덱스,내용,작성 일시를 출력     </li>
+<li>글쓰기 버튼 추가   </li>
+</ol>
+<h3 id="clone-board-add-html-코드"><a href="#clone-board-add-html-코드" class="headerlink" title="clone_board_add.html 코드"></a>clone_board_add.html 코드</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">생략</span><br><span class="line">&lt;div class&#x3D;&quot;container my-3&quot;&gt;</span><br><span class="line">            &lt;form method&#x3D;&quot;post&quot; class&#x3D;&quot;post-form&quot;&gt;</span><br><span class="line">                &#123;&#123; form.csrf_token &#125;&#125;</span><br><span class="line">                &#123;% include &quot;checklist_form_errors.html&quot; %&#125;</span><br><span class="line">                Title:&amp;nbsp</span><br><span class="line">                &lt;input type&#x3D;&quot;content_title&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;content_title&quot; id&#x3D;&quot;content_title&quot;&gt;</span><br><span class="line">                    </span><br><span class="line">                &lt;form action&#x3D;&quot;&#123;&#123; url_for(&#39;clone_board.add&#39;) &#125;&#125;&quot; method&#x3D;&quot;post&quot;&gt;</span><br><span class="line">                    </span><br><span class="line">                    &lt;label for&#x3D;&quot;content_text&quot; style&#x3D;&quot;font-size:16px;&quot; &gt;Content:&lt;&#x2F;label&gt;</span><br><span class="line">                    &lt;textarea name&#x3D;&quot;content_text&quot; id&#x3D;&quot;content_text&quot; rows&#x3D;&quot;15&quot;&gt;&lt;&#x2F;textarea&gt;</span><br><span class="line">                    &lt;input type&#x3D;&quot;submit&quot; style&#x3D;&quot;font-size:16px;&quot; value&#x3D;&quot;등록&quot;&gt;</span><br><span class="line"></span><br><span class="line">                &lt;&#x2F;form&gt;</span><br><span class="line">            &lt;&#x2F;form&gt;</span><br><span class="line">생략</span><br></pre></td></tr></table></figure>
+<h3 id="clone-board-add-html-설명"><a href="#clone-board-add-html-설명" class="headerlink" title="clone_board_add.html 설명"></a>clone_board_add.html 설명</h3><ol>
+<li>에러 출력 관련 처리 위한 코드 추가   </li>
+<li>제목과 내용 입력란 추가</li>
+<li>등록 버튼을 누르면 forms 정보와 함께 clone_board add 메소드로 이동   </li>
+</ol>
+<h1 id="향후-목표"><a href="#향후-목표" class="headerlink" title="향후 목표"></a>향후 목표</h1><ol start="0">
+<li>기능 손보기<ol>
+<li>부트스트랩 변경(디자인 수정)  </li>
+</ol>
+</li>
+<li>글 수정기능<ol>
+<li>부가적으로 패스워드 필요   </li>
+</ol>
+</li>
+<li>글 삭제<ol>
+<li>부가적으로 패스워드 필요   </li>
+</ol>
+</li>
+<li>사진 업로드 기능(글쓰기)</li>
+<li>작성자 이름 추가(닉네임)</li>
+</ol>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>PraiseBak</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://praisebak.github.io/2021/06/08/2021-06/web-add-clone-add-board/">https://praisebak.github.io/2021/06/08/2021-06/web-add-clone-add-board/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>wasn't i meant for something better than this?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/pet-project/"># pet project</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/06/07/2021-05/Pet-Project-web-add-clone-board/">Pet-Project-web-clone-board-add</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© PraiseBak | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
