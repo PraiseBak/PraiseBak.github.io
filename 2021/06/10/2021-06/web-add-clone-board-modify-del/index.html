@@ -203,9 +203,8 @@
 
         <div class="post-content">
             <hr>
-<p>title: Pet-Project-web-수정 및 삭제기능 추가<br>category: pet project<br>tags: pet project<br>date: 2021-06-09 4:55:01</p>
-<hr>
-<h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>웹에 클론코딩 페이지를 추가하기까지의 정리  </p>
+<p>title: Pet-Project-web-수정 및 삭제기능 추가<br>category: pet project<br>tags: pet project</p>
+<h2 id="date-2021-06-09-4-55-01"><a href="#date-2021-06-09-4-55-01" class="headerlink" title="date: 2021-06-09 4:55:01"></a>date: 2021-06-09 4:55:01</h2><h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>웹에 클론코딩 페이지를 추가하기까지의 정리  </p>
 <h1 id="현황"><a href="#현황" class="headerlink" title="현황"></a>현황</h1><p>게시글 수정 및 게시글 삭제를 추가하였다.    </p>
 <p><img src="https://raw.githubusercontent.com/PraiseBak/PetProject-Memo_Web/master/app/images/%EC%82%AD%EC%A0%9C%2C%EC%88%98%EC%A0%95%EB%B2%84%ED%8A%BC.PNG" alt="게시글 수정,삭제 버튼">   </p>
 <p>[글쓰기 버튼 추가 및 작성일시 추가]<br><img src="https://raw.githubusercontent.com/PraiseBak/PetProject-Memo_Web/master/app/images/%EC%88%98%EC%A0%95%ED%99%94%EB%A9%B4.PNG" alt="게시글 수정 화면"><br>[글쓰기 눌렀을 때 화면]   </p>
@@ -215,6 +214,7 @@
 <li>board_content.html</li>
 </ol>
 <h3 id="clone-board-py-코드"><a href="#clone-board-py-코드" class="headerlink" title="clone_board.py 코드"></a>clone_board.py 코드</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@clone_board_bp.route(&#39;&#x2F;del&#x2F;&lt;int:board_content_idx&gt;&#x2F;&#39;)</span><br><span class="line">def delContent(board_content_idx):</span><br><span class="line">    db &#x3D; Database()</span><br><span class="line">    db.execute(&quot;&quot;&quot;DELETE FROM board_content_table WHERE board_content_idx &#x3D; %s&quot;&quot;&quot; %str(board_content_idx))</span><br><span class="line">    db.commit()</span><br><span class="line">    return redirect(url_for(&quot;clone_board.list&quot;))</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">@clone_board_bp.route(&#39;&#x2F;modify&#x2F;&lt;int:board_content_idx&gt;&#x2F;&#39;,methods&#x3D;[&#39;POST&#39;,&#39;GET&#39;])</span><br><span class="line">def modify(board_content_idx):</span><br><span class="line">    db &#x3D; Database()</span><br><span class="line">    data &#x3D; db.executeAll(&quot;&quot;&quot;SELECT * FROM board_content_table WHERE board_content_idx &#x3D; %s&quot;&quot;&quot; %str(board_content_idx))</span><br><span class="line"></span><br><span class="line">    if request.method &#x3D;&#x3D; &#39;POST&#39;:</span><br><span class="line">        form &#x3D; ContentAddForm()</span><br><span class="line">        if form.validate_on_submit():</span><br><span class="line">            db.execute(&quot;&quot;&quot;UPDATE board_content_table SET write_time&#x3D;&#39;%s&#39;,board_content_title&#x3D;&#39;%s&#39;,board_content&#x3D;&#39;%s&#39; WHERE board_content_idx &#x3D; &#39;%s&#39;&quot;&quot;&quot; % (datetime.now(),form.content_title.data,form.content_text.data,str(data[0][&#39;board_content_idx&#39;]) ))</span><br><span class="line">            db.commit() </span><br><span class="line">            return redirect(url_for(&#39;clone_board.content&#39;,board_content_idx&#x3D;board_content_idx))</span><br><span class="line">    else:</span><br><span class="line">        form &#x3D; ContentAddForm(content_title&#x3D;data[0][&#39;board_content_title&#39;],content_text&#x3D;data[0][&#39;board_content&#39;])</span><br><span class="line">    return render_template(&#39;&#x2F;main&#x2F;board_add.html&#39;,form&#x3D;form,board_content_idx&#x3D;board_content_idx)</span><br></pre></td></tr></table></figure>
+
 <h3 id="clone-board-py-설명"><a href="#clone-board-py-설명" class="headerlink" title="clone_board.py 설명"></a>clone_board.py 설명</h3><ul>
 <li>일부 생략된 코드임을 유의</li>
 </ul>
@@ -223,38 +223,18 @@
 <li>수정 버튼을 누르면 수정창(게시글 작성 재활용)을 띄워줌   </li>
 <li>수정창에서 등록을 눌렀다면(request = POST인 경우) db에 업데이트 해주고 수정된 내용을 보여줌 </li>
 </ul>
-<h3 id="board-add-html-코드"><a href="#board-add-html-코드" class="headerlink" title="board_add.html 코드"></a>board_add.html 코드</h3><pre><code>생략
-&lt;div class=&quot;container my-3&quot;&gt;
-            &lt;form method=&quot;post&quot; class=&quot;post-form&quot;&gt;
-                {{ form.csrf_token }}
-                {% include "checklist_form_errors.html" %}
-                Title:&amp;nbsp 
-                &lt;input type=&quot;content_title&quot; class=&quot;form-control&quot; name=&quot;content_title&quot; id=&quot;content_title&quot; value={{ form.data.content_title or ''}}&gt;
+<h3 id="board-add-html-코드"><a href="#board-add-html-코드" class="headerlink" title="board_add.html 코드"></a>board_add.html 코드</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">생략</span><br><span class="line">&lt;div class&#x3D;&quot;container my-3&quot;&gt;</span><br><span class="line">            &lt;form method&#x3D;&quot;post&quot; class&#x3D;&quot;post-form&quot;&gt;</span><br><span class="line">                &#123;&#123; form.csrf_token &#125;&#125;</span><br><span class="line">                &#123;% include &quot;checklist_form_errors.html&quot; %&#125;</span><br><span class="line">                Title:&amp;nbsp </span><br><span class="line">                &lt;input type&#x3D;&quot;content_title&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;content_title&quot; id&#x3D;&quot;content_title&quot; value&#x3D;&#123;&#123; form.data.content_title or &#39;&#39;&#125;&#125;&gt;</span><br><span class="line">                    </span><br><span class="line">                &lt;form action&#x3D;&quot;&#123;&#123; url_for(&#39;clone_board.list&#39;,board_content_idx&#x3D;board_content_idx) if form.data.content_text else url_for(&#39;clone_board.list&#39;) &#125;&#125;&quot; method&#x3D;&quot;post&quot;&gt;</span><br><span class="line">                    </span><br><span class="line">                    &lt;label for&#x3D;&quot;content_text&quot; style&#x3D;&quot;font-size:16px;&quot;&gt;Content:&lt;&#x2F;label&gt;</span><br><span class="line">                    &lt;textarea name&#x3D;&quot;content_text&quot; id&#x3D;&quot;content_text&quot; rows&#x3D;&quot;15&quot;&gt;&#123;&#123;form.data.content_text or &#39;&#39;&#125;&#125;&lt;&#x2F;textarea&gt;</span><br><span class="line">                    &lt;input type&#x3D;&quot;submit&quot; style&#x3D;&quot;font-size:16px;&quot; value&#x3D;&quot;등록&quot;&gt;</span><br><span class="line">                    </span><br><span class="line">                &lt;&#x2F;form&gt;</span><br><span class="line">            &lt;&#x2F;form&gt;</span><br><span class="line">            </span><br><span class="line">생략</span><br></pre></td></tr></table></figure>
 
-                &lt;form action=&quot;{{ url_for('clone_board.list',board_content_idx=board_content_idx) if form.data.content_text else url_for('clone_board.list') }}&quot; method=&quot;post&quot;&gt;
-
-                    &lt;label for=&quot;content_text&quot; style=&quot;font-size:16px;&quot;&gt;Content:&lt;/label&gt;
-                    &lt;textarea name=&quot;content_text&quot; id=&quot;content_text&quot; rows=&quot;15&quot;&gt;{{form.data.content_text or ''}}&lt;/textarea&gt;
-                    &lt;input type=&quot;submit&quot; style=&quot;font-size:16px;&quot; value=&quot;등록&quot;&gt;
-
-                &lt;/form&gt;
-            &lt;/form&gt;
-
-생략</code></pre><h3 id="board-add-html-설명"><a href="#board-add-html-설명" class="headerlink" title="board_add.html 설명"></a>board_add.html 설명</h3><ol>
+<h3 id="board-add-html-설명"><a href="#board-add-html-설명" class="headerlink" title="board_add.html 설명"></a>board_add.html 설명</h3><ol>
 <li>조건문으로 수정모드일때와 글작성 모드를 forms의 값 유무로 판단하여 버튼을 눌렀을 때 연결할 url을 설정해줌   </li>
 </ol>
-<h3 id="board-content-html-코드"><a href="#board-content-html-코드" class="headerlink" title="board_content.html 코드"></a>board_content.html 코드</h3><pre><code>생략   
-&lt;div class=&quot;btns&quot;&gt;   
-                        &lt;div class=&quot;modify&quot;&gt;  
-                            &lt;a href=&quot;{{ url_for('clone_board.modify',board_content_idx=content[0]['board_content_idx'])}}&quot; 
-                                class=&quot;button&quot;&gt;수정&lt;/a&gt;
-                        &lt;/div&gt;
-                        &lt;div class=&quot;delete&quot;&gt;  
-                            &lt;a href=&quot;{{ url_for('clone_board.delContent',board_content_idx=content[0]['board_content_idx']) }}&quot;
-                                class=&quot;button&quot;&gt; 삭제 &lt;/a&gt;
-                        &lt;/div&gt;   
-&lt;/div&gt;    
-생략   </code></pre><h3 id="board-content-html-설명"><a href="#board-content-html-설명" class="headerlink" title="board_content_html 설명"></a>board_content_html 설명</h3><ol>
+<h3 id="board-content-html-코드"><a href="#board-content-html-코드" class="headerlink" title="board_content.html 코드"></a>board_content.html 코드</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btns"</span>&gt;</span>   </span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modify"</span>&gt;</span>  </span><br><span class="line">                            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; url_for('clone_board.modify',board_content_idx=content[0]['board_content_idx'])&#125;&#125;"</span> </span></span><br><span class="line"><span class="tag">                                <span class="attr">class</span>=<span class="string">"button"</span>&gt;</span>수정<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"delete"</span>&gt;</span>  </span><br><span class="line">                            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; url_for('clone_board.delContent',board_content_idx=content[0]['board_content_idx']) &#125;&#125;"</span></span></span><br><span class="line"><span class="tag">                                <span class="attr">class</span>=<span class="string">"button"</span>&gt;</span> 삭제 <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">div</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="board-content-html-설명"><a href="#board-content-html-설명" class="headerlink" title="board_content_html 설명"></a>board_content_html 설명</h3><ol>
 <li>수정,삭제버튼 추가</li>
 </ol>
 <h1 id="향후-목표"><a href="#향후-목표" class="headerlink" title="향후 목표"></a>향후 목표</h1><ol start="0">
