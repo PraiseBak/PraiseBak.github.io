@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="PraiseBak">
+
+
+    <meta name="subtitle" content="writing something note">
+
+
+    <meta name="description" content="wanna be a good at programming">
+
+
+
+<title>Pet-Project-web-0627-근황 | 응애</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">PraiseBak&#39;s Note</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">PraiseBak&#39;s Note</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Pet-Project-web-0627-근황</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">PraiseBak</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">6월 26, 2021&nbsp;&nbsp;4:18:01</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/pet-project/">pet project</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>웹에 클론코딩 페이지를 추가하기까지의 정리  </p>
+<h1 id="현황"><a href="#현황" class="headerlink" title="현황"></a>현황</h1><ol>
+<li><p>게시글 리스트에 작성자 추가</p>
+<ol>
+<li>비로그인인 경우 작성자에 ip가 표시됨(ip 일부)</li>
+<li>로그인한 유저의 경우 작성자에 ip 미표시</li>
+</ol>
+</li>
+<li><p>로그인 기능 적용</p>
+<ol>
+<li>로그인한 유저가 작성한 글은 해당 유저만 삭제가능</li>
+<li>로그인한 유저는 비로그인 유저의 삭제,수정기능 이용불가</li>
+<li>비로그인 유저의 글 수정 삭제는 비밀번호 입력</li>
+<li>로그인 유저의 글 수정 삭제는 동일 유저라면 비밀번호 입력 X</li>
+<li>댓글,대댓글에도 적용시킴</li>
+</ol>
+</li>
+<li><p>검색기능</p>
+</li>
+<li><p>페이징기능</p>
+</li>
+<li><p>추천,비추천 기능 추가</p>
+</li>
+<li><p>댓글,대댓글 기능 추가</p>
+</li>
+</ol>
+<h3 id="검색-페이징-기능"><a href="#검색-페이징-기능" class="headerlink" title="검색,페이징 기능"></a>검색,페이징 기능</h3><p><img src="https://raw.githubusercontent.com/PraiseBak/PetProject-Memo_Web/master/app/images/0627_%EA%B2%80%EC%83%89_%ED%8E%98%EC%9D%B4%EC%A7%95.PNG" alt="검색 및 페이징"></p>
+<h3 id="작성자-추가-로그인-적용-ip-유무로-로그인-비로그인-구분"><a href="#작성자-추가-로그인-적용-ip-유무로-로그인-비로그인-구분" class="headerlink" title="작성자 추가, 로그인 적용(ip 유무로 로그인 비로그인 구분)"></a>작성자 추가, 로그인 적용(ip 유무로 로그인 비로그인 구분)</h3><p><img src="https://raw.githubusercontent.com/PraiseBak/PetProject-Memo_Web/master/app/images/0627%ED%98%84%ED%99%A9.PNG" alt="작성자 추가, 로그인 적용"></p>
+<h3 id="댓글-관련"><a href="#댓글-관련" class="headerlink" title="댓글 관련"></a>댓글 관련</h3><p><img src="https://raw.githubusercontent.com/PraiseBak/PetProject-Memo_Web/master/app/images/0627_%EB%8C%93%EA%B8%80_%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%95%9C%EA%B2%BD%EC%9A%B001.PNG" alt="댓글 관련"></p>
+<h1 id="소스-코드-및-설명"><a href="#소스-코드-및-설명" class="headerlink" title="소스 코드 및 설명"></a>소스 코드 및 설명</h1><p>앞으로 추가 및 링크 추가 예정!</p>
+<h1 id="향후-목표"><a href="#향후-목표" class="headerlink" title="향후 목표"></a>향후 목표</h1><ol>
+<li><p>사진 업로드 기능(글쓰기)</p>
+</li>
+<li><p>프로필 기능</p>
+</li>
+</ol>
+<p>​     </p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>PraiseBak</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://praisebak.github.io/2021/06/25/2021-06/web-add-clone-board-0627-recent/">https://praisebak.github.io/2021/06/25/2021-06/web-add-clone-board-0627-recent/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>wasn't i meant for something better than this?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/pet-project/"># pet project</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/06/10/2021-06/web-add-clone-board-modify-del/">web-add-clone-board-modify-del</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© PraiseBak | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
