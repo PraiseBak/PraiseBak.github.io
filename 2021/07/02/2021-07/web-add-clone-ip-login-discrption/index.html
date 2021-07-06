@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="PraiseBak">
+
+
+    <meta name="subtitle" content="writing something note">
+
+
+    <meta name="description" content="wanna be a good at programming">
+
+
+
+<title>Pet-Project-web-아이피-로그인 기능 | 응애</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">PraiseBak&#39;s Note</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">PraiseBak&#39;s Note</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Pet-Project-web-아이피-로그인 기능</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">PraiseBak</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">7월 2, 2021&nbsp;&nbsp;18:01:31</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/pet-project/">pet project</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>게시글에 아이피를 추가하고 관련 기능을 추가함</p>
+<h1 id="기능"><a href="#기능" class="headerlink" title="기능"></a>기능</h1><h3 id="아이피-관련"><a href="#아이피-관련" class="headerlink" title="아이피 관련"></a>아이피 관련</h3><ul>
+<li>아이피를 추가하는 것은 다음 이유가 있다.<ol>
+<li>추천, 비추천 기능에 있어서 중복을 막기 위함    </li>
+<li>비로그인 유저,로그인 유저를 구분하기 위함<br>user(ip) &lt;- 비로그인 유저<br>user &lt;- 로그인 유저   </li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>로그인한 유저의 경우에는 로그인 정보로 구분을 하는데 비로그인 유저의 글은 ip로 구분하는 것은 또 아니다. </p>
+<p>밖에서 글을 작성하고 집에와서 글을 수정하거나 삭제하는 것이 가능해야 한다고 생각했기 때문이다.</p>
+</li>
+</ul>
+<h3 id="로그인-관련"><a href="#로그인-관련" class="headerlink" title="로그인 관련"></a>로그인 관련</h3><ul>
+<li>로그인 기능을 추가함으로써 변경되는 사항들<ol start="2">
+<li>댓글 작성 로그인 유무에 따라 삭제<ol>
+<li>대댓글 작성 로그인 유무에 따라 삭제</li>
+</ol>
+</li>
+<li>글쓰기 로그인 유무에 따라 수정, 삭제</li>
+</ol>
+</li>
+</ul>
+<h1 id="예시-그림"><a href="#예시-그림" class="headerlink" title="예시 그림"></a>예시 그림</h1><p><img src="https://raw.githubusercontent.com/PraiseBak/PetProject-Memo_Web/master/app/images/ip_01.png" alt="ip예제_01"></p>
+<p>[비로그인 유저인 경우 ip를 출력하는 모습]</p>
+<p><img src="https://raw.githubusercontent.com/PraiseBak/PetProject-Memo_Web/master/app/images/ip_02.PNG" alt="ip예제_02"></p>
+<p>[로그인 유무에 따라 ip가 출력되고 안출력되는 모습]</p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><h3 id="ip-관련"><a href="#ip-관련" class="headerlink" title="ip 관련"></a>ip 관련</h3><ul>
+<li><p>사용자의 ip 가져오기</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def get_covered_ip():</span><br><span class="line">    ip &#x3D; socket.gethostbyname(socket.gethostname())</span><br><span class="line">    front_ip &#x3D; ip.split(&#39;.&#39;)[0]</span><br><span class="line">    back_ip &#x3D; ip.split(&#39;.&#39;)[1]</span><br><span class="line">    return front_ip + &#39;.&#39; + back_ip</span><br></pre></td></tr></table></figure>
+
+<p>위 코드를 실행하면 ip에 123.456.789.876~ 같은 형식으로 ip가 출력된다. </p>
+<p>실제로 보여주는 ip 형식은 123.456 형식을 원하기 때문에 split(‘.’)을 이용하여 일부를 제거했다.</p>
+</li>
+</ul>
+<h3 id="로그인-관련-1"><a href="#로그인-관련-1" class="headerlink" title="로그인 관련"></a>로그인 관련</h3><ul>
+<li><p>로그인 구현</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@login_bp.route('/login/&lt;string:before_page&gt;',methods=['GET','POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(before_page=None)</span>:</span></span><br><span class="line">	form = UserLoginForm()</span><br><span class="line">	<span class="keyword">if</span> request.method == <span class="string">'POST'</span> <span class="keyword">and</span> form.validate_on_submit():</span><br><span class="line">		error = <span class="literal">None</span></span><br><span class="line">		db = Database()</span><br><span class="line">		user = db.executeAll(<span class="string">"SELECT id,password FROM user WHERE id = '%s'"</span> % (form.username.data))</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> len(user) == <span class="number">0</span>:</span><br><span class="line">			user = <span class="number">0</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			password = user[<span class="number">0</span>][<span class="string">'password'</span>]</span><br><span class="line">			user = user[<span class="number">0</span>][<span class="string">'id'</span>]</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> user == <span class="number">0</span>:</span><br><span class="line">			error = <span class="string">"존재하지 않는 사용자입니다"</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">elif</span> <span class="keyword">not</span> password == form.password.data:</span><br><span class="line">			error = <span class="string">"비밀번호가 올바르지 않습니다."</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> error <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">			session.clear()</span><br><span class="line">			session[<span class="string">'user_id'</span>] = user</span><br><span class="line">			print(<span class="string">"이전 페이지:"</span>,before_page)</span><br><span class="line">			<span class="keyword">if</span> before_page == <span class="string">'checklist'</span>:</span><br><span class="line">				<span class="keyword">return</span> redirect(url_for(before_page+<span class="string">'.checklist'</span>))</span><br><span class="line">			<span class="keyword">elif</span> before_page != <span class="literal">None</span>:</span><br><span class="line">				<span class="keyword">return</span> redirect(url_for(before_page+<span class="string">'.list'</span>))</span><br><span class="line">			<span class="keyword">return</span> redirect(url_for(<span class="string">'main.index'</span>))</span><br><span class="line"></span><br><span class="line">		flash(error)</span><br><span class="line">	<span class="keyword">return</span> render_template(<span class="string">'/main/login.html'</span>,form=form)</span><br></pre></td></tr></table></figure>
+
+<p>우선 login 페이지(html)에서 post 형태로 통신이 들어오면, 입력된 form이 login form 규격에 맞는지 체크한다.</p>
+<p>맞다면 데이터베이스에서 로그인 정보를 가져온다.</p>
+<p>실제로 로그인 정보가 일치하면 세션에 로그인 정보를 갱신하게 된다.</p>
+</li>
+</ul>
+<ul>
+<li><p>로그인 유무 확인</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@login_bp.before_app_request</span><br><span class="line">def load_logged_in_user():</span><br><span class="line">	user_id &#x3D; session.get(&#39;user_id&#39;)</span><br><span class="line">	if user_id is None:</span><br><span class="line">		g.user &#x3D; None</span><br><span class="line">		g.idx &#x3D; None</span><br><span class="line">	else:</span><br><span class="line">		db &#x3D; Database()</span><br><span class="line">		g.user &#x3D; db.executeOne(&quot;SELECT id,idx FROM user WHERE id &#x3D; &#39;%s&#39; &quot; % (user_id))</span><br><span class="line">		g.idx &#x3D; g.user[&#39;idx&#39;]</span><br><span class="line">		g.user &#x3D; g.user[&#39;id&#39;]</span><br></pre></td></tr></table></figure>
+
+<p>위 코드에서 before_app_request는 이름 그대로 어떤 request를 하기 전에 항상 거치는</p>
+<p>메소드를 명시하는 것이다.</p>
+<p>앞서 본 코드에서 로그인을 하게되면 session에 값이 갱신되고  로그인 한 후에는</p>
+<p>항상 load_logged_in_uer() 메소드를 거쳐 g(플라스크의 전역변수 정도로 이해)의 전역변수를 지정해주는 식으로</p>
+<p>로그인을 구분짓을 수 있다.</p>
+</li>
+</ul>
+<ul>
+<li><p>장고 템플릿에서의 예</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if g.user %&#125;</span><br><span class="line">                         Hello &#123;&#123;g.user&#125;&#125;&lt;br&gt;</span><br><span class="line">                         &lt;ul class&#x3D;&quot;login&quot;&gt;</span><br><span class="line">                             &lt;li&gt;&lt;a href&#x3D;&quot;&#x2F;logout&quot; style&#x3D;&quot;margin-bottom:10px;&quot; class&#x3D;&quot;button big&quot;&gt;Logout&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;</span><br><span class="line">                         &lt;&#x2F;ul&gt;</span><br><span class="line">                         </span><br><span class="line">                     &#123;% else %&#125;</span><br><span class="line">                         &lt;div class&#x3D;&quot;btns&quot;&gt;</span><br><span class="line">                             &lt;div class&#x3D;&quot;loginArea&quot;&gt;</span><br><span class="line">                                 &lt;li&gt;</span><br><span class="line">                                     &#123;% if request.path !&#x3D; &quot;&#x2F;login&quot; %&#125;</span><br><span class="line">                                         &lt;a href&#x3D;&quot;&#x2F;login&quot; class&#x3D;&quot;button big&quot; style&#x3D;&quot;margin-right:10px;&quot;&gt;</span><br><span class="line">                                             &lt;span style &#x3D; &quot;  color:white;&quot;&gt;</span><br><span class="line">                                                 Login</span><br><span class="line">                                             &lt;&#x2F;span&gt;</span><br><span class="line">                                         &lt;&#x2F;a&gt;</span><br><span class="line">                                     &#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>중요한것은<br>&#123;&#123;g.user&#125;&#125;로 로그인을 구분지어 이에따라 보여지는 html을 수정할 수 있다는 점이다.   </p>
+<p>위는 다음과 같이 출력된다. </p>
+<p><img src="https://raw.githubusercontent.com/PraiseBak/PetProject-Memo_Web/master/app/images/login_01.PNG" alt="ip예제_01"></p>
+</li>
+</ul>
+<ul>
+<li><p>백엔드 상 예제   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> loginUser == <span class="number">1</span> <span class="keyword">and</span> (username==session.get(<span class="string">'user_id'</span>)):</span><br><span class="line">        content_title = data[<span class="number">0</span>][<span class="string">'board_content_title'</span>]</span><br><span class="line">        content_text = data[<span class="number">0</span>][<span class="string">'board_content'</span>]</span><br><span class="line">        username = data[<span class="number">0</span>][<span class="string">'write_user_name'</span>]</span><br><span class="line">        password = <span class="string">"****"</span></span><br><span class="line">		...이하 생략 </span><br><span class="line">위 코드는 수정버튼을 눌렀을 때를 생각해보면</span><br></pre></td></tr></table></figure>
+
+<p>로그인한 유저 = 게시글을 작성하는 유저를 확인하는 부분이다</p>
+<p>조건문의 username은 앞서 데이터베이스에서 해당 게시글을 작성한 유저를 의미하고</p>
+<p>session.get(‘user_id’)를 통해 현재 로그인한 유저와 비교한다.</p>
+<p>참고로 loginUser는 게시글을 작성한 유저의 로그인 유무를 의미하는 변수이다.</p>
+</li>
+</ul>
+<p>이로써 게시판에 로그인,ip 기능을 적용했다.<br>아무래도 플라스크를 이용하여 웹 페이지를 구현하면</p>
+<p>html이라던가 form이라던가 세부적인 사항도 많이 남아 있지만</p>
+<p>전체 코드를 담기에는 의미없는 반복, 세부사항이 너무 많아 생략한다는 점 양해 바란다.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>PraiseBak</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://praisebak.github.io/2021/07/02/2021-07/web-add-clone-ip-login-discrption/">https://praisebak.github.io/2021/07/02/2021-07/web-add-clone-ip-login-discrption/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>wasn't i meant for something better than this?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/pet-project/"># pet project</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/07/06/2021-prev/0316_graph_b1167/">Graph B1167</a>
+            
+            
+            <a class="next" rel="next" href="/2021/06/25/2021-06/web-add-clone-board-0627-recent/">Pet-Project-web-0627-근황</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© PraiseBak | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

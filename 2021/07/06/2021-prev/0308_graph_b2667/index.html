@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="PraiseBak">
+
+
+    <meta name="subtitle" content="writing something note">
+
+
+    <meta name="description" content="wanna be a good at programming">
+
+
+
+<title>Graph B2667 | 응애</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">PraiseBak&#39;s Note</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">PraiseBak&#39;s Note</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Graph B2667</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">PraiseBak</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">7월 6, 2021&nbsp;&nbsp;13:57:28</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/algorithm/">algorithm</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>백준 문제 2667번을 풀면서 어려웠던 점과 코드를 정리한다.<br>소요 시간 : 약 4시간</p>
+<p><a href="https://www.acmicpc.net/problem/2667" target="_blank" rel="noopener">https://www.acmicpc.net/problem/2667</a>  </p>
+<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>&lt;그림 1&gt;과 같이 정사각형 모양의 지도가 있다.<br>1은 집이 있는 곳을, 0은 집이 없는 곳을 나타낸다.<br>철수는 이 지도를 가지고 연결된 집의 모임인 단지를 정의하고, 단지에 번호를 붙이려 한다.<br>여기서 연결되었다는 것은 어떤 집이 좌우, 혹은 아래위로 다른 집이 있는 경우를 말한다.<br>대각선상에 집이 있는 경우는 연결된 것이 아니다.<br>&lt;그림 2&gt;는 &lt;그림 1&gt;을 단지별로 번호를 붙인 것이다.<br>지도를 입력하여 단지수를 출력하고, 각 단지에 속하는 집의 수를 오름차순으로 정렬하여 출력하는 프로그램을 작성하시오.  </p>
+<p>입력<br>첫 번째 줄에는 지도의 크기 N(정사각형이므로 가로와 세로의 크기는 같으며 5≤N≤25)이 입력되고, 그 다음 N줄에는 각각 N개의 자료(0혹은 1)가 입력된다.</p>
+<p>출력<br>첫 번째 줄에는 총 단지수를 출력하시오. 그리고 각 단지내 집의 수를 오름차순으로 정렬하여 한 줄에 하나씩 출력하시오.</p>
+<p>예제 입력<br>1<br>7<br>0110100<br>0110101<br>1110101<br>0000111<br>0100000<br>0111110<br>0111000  </p>
+<p>예제 출력 1<br>3<br>7<br>8<br>9</p>
+<h1 id="계획한-풀이법"><a href="#계획한-풀이법" class="headerlink" title="계획한 풀이법"></a>계획한 풀이법</h1><p>우선 입력에 따라 그래프를 제대로 구성했다면, BFS나 DFS를 사용하면 단지를 쉽게 찾을 수 있다.<br>이 중에서 나는 BFS를 사용했다.    </p>
+<h3 id="그래프-연결"><a href="#그래프-연결" class="headerlink" title="그래프 연결"></a>그래프 연결</h3><p>그래프 연결에 이차원 배열을 사용하지 않았다 왜냐하면 입력 한개를 row 하나라고 생각했을 때,<br>나는 인덱스를 사용하고 싶었는데 이차원 배열을 사용하면 상하 row와 연결이 쉽지 않다고 생각했기 때문이다.<br>위 예제의<br>0110100<br>0110101<br>을 보면 각 입력의 011부분이 연결돼야 하는데 row[0][1] -&gt; row[1][1]<br>연결이 쉽지 않다고 생각해서 이다.  (삼차원 벡터를 사용하면 가능하지도?)   </p>
+<h1 id="오래걸렸던-이유"><a href="#오래걸렸던-이유" class="headerlink" title="오래걸렸던 이유"></a>오래걸렸던 이유</h1><p>문제 자체는 쉬웠고 접근법도 빠르게 떠올랐으며 정답에 가까웠다.<br>문제는 위 입력을 구현하는 것이 첫번째 고비였다.<br>두번째는 문제를 잘 못 이해해서 시간이 오래 걸렸는데<br>이것은 게시판을 둘러보면서 문제를 잘 못 이해했다는 것을 발견했다.<br>집 한채만 있을 때는 단지가 아니라서 생각해서 출력을 하지 않도록 했는데<br>집 한채도 단지라고 판정짓고 출력해야 했던 것이다.<br>이 경우에는 자기자신을 가르키게 해서 사이클을 형성했고 이 경우 자기자신만 자신을 가르키기 때문에<br>해당 정점의 연결이 몇개 돼 있는지 보고 한 개라면 이 경우인 것을 이용했다.<br>(다른 정점과 연결이 되면 무조건 연결이 2개 이상이다)<br>그 두가지를 해결하니 문제도 해결됐다.  </p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">const int MAX &#x3D; 1001;</span><br><span class="line"></span><br><span class="line">struct</span><br><span class="line">&#123;</span><br><span class="line">	int num;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void Graph::connectEdge(int v,int e)</span><br><span class="line">&#123;</span><br><span class="line">	graph[v].push_back(e);</span><br><span class="line">	if(v &#x3D;&#x3D; e)</span><br><span class="line">	&#123;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	graph[e].push_back(v);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void Graph:: BFS(int startV)</span><br><span class="line">&#123;</span><br><span class="line">	queue&lt;int&gt; que;</span><br><span class="line">	que.push(startV);</span><br><span class="line">	int curV &#x3D; 0;</span><br><span class="line">	int notVisited &#x3D; 1;</span><br><span class="line">	int houseCount &#x3D; 1;</span><br><span class="line">	visit[startV] &#x3D; true;</span><br><span class="line"></span><br><span class="line">	if(graph[startV].size() &#x3D;&#x3D; 1)</span><br><span class="line">	&#123;</span><br><span class="line">		houseSet.push_back(houseCount);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	while(que.size()!&#x3D;0)</span><br><span class="line">	&#123;</span><br><span class="line">		curV &#x3D; que.front();</span><br><span class="line">		que.pop();</span><br><span class="line">		&#x2F;&#x2F;&#x2F;&#x2F;cout &lt;&lt; &quot;현재 정점 : &quot; &lt;&lt; curV &lt;&lt; &quot;\n&quot;;</span><br><span class="line">		for(int i&#x3D;0;i&lt;graph[curV].size();i++)</span><br><span class="line">		&#123;</span><br><span class="line">			</span><br><span class="line">			if(visit[graph[curV][i]] &#x3D;&#x3D; 1)</span><br><span class="line">			&#123;</span><br><span class="line">				continue;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			notVisited &#x3D; 0;</span><br><span class="line">			que.push(graph[curV][i]);</span><br><span class="line">			visit[graph[curV][i]] &#x3D; true;</span><br><span class="line"></span><br><span class="line">			houseCount++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	if(!notVisited)</span><br><span class="line">	&#123;</span><br><span class="line">		houseSet.push_back(houseCount);</span><br><span class="line">		&#x2F;&#x2F;doSomeThing(); </span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void solve()</span><br><span class="line">&#123;</span><br><span class="line">	int n &#x3D; 0;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	Graph g &#x3D; Graph();</span><br><span class="line">	fill_n(g.visit,MAX,0);</span><br><span class="line">	int maxSize &#x3D; n*n;</span><br><span class="line">	int num[maxSize];</span><br><span class="line">	for(int i&#x3D;0;i&lt;maxSize;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		vector&lt;int&gt; nodeTmp;</span><br><span class="line">		g.graph.push_back(nodeTmp);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	int idx &#x3D; 0;</span><br><span class="line"></span><br><span class="line">	for(int row &#x3D; 0;row &lt; n;row++)</span><br><span class="line">	&#123;</span><br><span class="line">		char input[n];</span><br><span class="line">		char prevRow[n];</span><br><span class="line"></span><br><span class="line">		for(int cal &#x3D; 0;cal&lt;n;cal++,idx++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; input[cal];</span><br><span class="line">			if(input[cal] - &#39;0&#39;)</span><br><span class="line">			&#123;</span><br><span class="line">				if(cal &#x3D;&#x3D; 0)</span><br><span class="line">				&#123;</span><br><span class="line">					g.connectEdge(idx,idx);</span><br><span class="line">				&#125;</span><br><span class="line">				else if(input[cal-1] - &#39;0&#39;)</span><br><span class="line">				&#123;</span><br><span class="line">					g.connectEdge(idx,idx-1);</span><br><span class="line">				&#125;</span><br><span class="line">				else</span><br><span class="line">				&#123;</span><br><span class="line">					g.connectEdge(idx,idx);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			if(row !&#x3D; 0)</span><br><span class="line">			&#123;</span><br><span class="line">				if(prevRow[cal]  - &#39;0&#39; &amp;&amp; input[cal] - &#39;0&#39;)</span><br><span class="line">				&#123;</span><br><span class="line">					g.connectEdge(idx - n,idx);</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		for(int i&#x3D;0;i&lt;n;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			prevRow[i] &#x3D; input[i];</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	for(int i&#x3D;0;i&lt;maxSize;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(g.visit[i])</span><br><span class="line">		&#123;</span><br><span class="line">			continue;</span><br><span class="line">		&#125;</span><br><span class="line">		g.BFS(i);</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; g.houseSet.size() &lt;&lt;&quot;\n&quot;;</span><br><span class="line">	sort(g.houseSet.begin(),g.houseSet.end());</span><br><span class="line">	if(g.houseSet.size() &#x3D;&#x3D; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;0&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	for(int i&#x3D;0;i&lt;g.houseSet.size();i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; g.houseSet[i] &lt;&lt; &quot;\n&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	solve();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>PraiseBak</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://praisebak.github.io/2021/07/06/2021-prev/0308_graph_b2667/">https://praisebak.github.io/2021/07/06/2021-prev/0308_graph_b2667/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>wasn't i meant for something better than this?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/algorithm/"># algorithm</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/07/06/2021-prev/web%20pet%20project/">Web Pet Project - Outline</a>
+            
+            
+            <a class="next" rel="next" href="/2021/07/06/2021-prev/0313_graph_b7576/">Graph B7576</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© PraiseBak | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
