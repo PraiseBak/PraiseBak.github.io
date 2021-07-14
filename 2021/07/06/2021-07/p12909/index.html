@@ -16,7 +16,7 @@
 
 
 
-<title>CRF flowchart | 응애</title>
+<title>2021-07/p12909 | 응애</title>
 
 
 
@@ -177,7 +177,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">CRF flowchart</h1>
+            <h1 class="post-title">2021-07/p12909</h1>
             
                 <div class="post-meta">
                     
@@ -186,35 +186,28 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">7월 6, 2021&nbsp;&nbsp;13:57:28</a>
+                        Date: <a href="#">7월 6, 2021&nbsp;&nbsp;16:04:34</a>
                         </span>
                     
-                    
-                        <span class="post-category">
-                    Category:
-                            
-                                <a href="/categories/CRF/">CRF</a>
-                            
-                        </span>
                     
                 </div>
             
         </header>
 
         <div class="post-content">
-            <h1 id="CRF-Flowchart"><a href="#CRF-Flowchart" class="headerlink" title="CRF Flowchart"></a>CRF Flowchart</h1><p>will shown flowchart is CRF split by 3 part:<br>get training data part,<br>get feature part,<br>optimize part<br>some optimze and specific mathmatical part was omitted</p>
-<h1 id="FlowChart"><a href="#FlowChart" class="headerlink" title="FlowChart"></a>FlowChart</h1><p>following part is FlowChart    </p>
-<ul>
-<li><h3 id="CRF-outline"><a href="#CRF-outline" class="headerlink" title="CRF outline"></a>CRF outline</h3><p><img src="https://github.com/PraiseBak/PraiseBak.github.io/blob/master/image/CRFoutline.png?raw=true" alt="CRF outline"><br>this flowchart shows splitted part  </p>
-</li>
-<li><h3 id="CRF-read-corpus"><a href="#CRF-read-corpus" class="headerlink" title="CRF read corpus"></a>CRF read corpus</h3><p><img src="https://github.com/PraiseBak/PraiseBak.github.io/blob/master/image/CRF%20read_corpus.png?raw=true" alt="CRF get training data part"><br>this flowchart shows training data way    </p>
-</li>
-<li><h3 id="CRF-feature-scan"><a href="#CRF-feature-scan" class="headerlink" title="CRF feature scan"></a>CRF feature scan</h3><p><img src="https://raw.githubusercontent.com/PraiseBak/PraiseBak.github.io/master/image/CRF%20feature.png" alt="CRF get feature part"><br>this flowchart shows how to make feature</p>
-</li>
-<li><h3 id="CRF-optimize"><a href="#CRF-optimize" class="headerlink" title="CRF optimize"></a>CRF optimize</h3><p><img src="https://github.com/PraiseBak/PraiseBak.github.io/blob/master/image/CRF%20optimize.png?raw=true" alt="CRF optimize"><br>this flowchart shows optimize methods very simplely<br>following:more specific but also there is no mathmatical explaination<br><img src="https://modi.changwon.ac.kr/air_cwnu/AIR_JUMP/library_package/uploads/188ccbb58fd90dbd6a7222b540a4467b/CRF_estimate_parameter.png" alt="CRF optimize2">  </p>
-</li>
-</ul>
-<h1 id="furture"><a href="#furture" class="headerlink" title="furture.."></a>furture..</h1><p>continuing to study more specific parts…</p>
+            <hr>
+<p>title: programmers 17687 [3차] n진수 게임<br>tag: algorithm<br>category: algorithm</p>
+<hr>
+<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>괄호가 바르게 짝지어졌다는 것은 ‘(‘ 문자로 열렸으면 반드시 짝지어서 ‘)’ 문자로 닫혀야 한다는 뜻입니다. 예를 들어<br>“()()” 또는 “(())()” 는 올바른 괄호입니다.<br>“)()(“ 또는 “(()(“ 는 올바르지 않은 괄호입니다.<br>‘(‘ 또는 ‘)’ 로만 이루어진 문자열 s가 주어졌을 때, 문자열 s가 올바른 괄호이면 true를 return 하고, 올바르지 않은 괄호이면 false를 return 하는 solution 함수를 완성해 주세요.</p>
+<h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><ol>
+<li>시작괄호로 시작하는지 체크</li>
+<li>닫힌괄호가 나올 수 있는 것은 아직 닫히지 않은 시작괄호가 있을 때 뿐임</li>
+<li>이를 startCount 즉 시작괄호로 체크해줌 (==0 이면 모든 시작괄호가 잘 닫혔단 뜻)</li>
+</ol>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">    boolean solution(String s) &#123;</span><br><span class="line">        boolean answer &#x3D; true;</span><br><span class="line">        int startCount &#x3D; 0;</span><br><span class="line"></span><br><span class="line">        for(int i&#x3D;0;i&lt;s.length();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if(s.charAt(i) &#x3D;&#x3D; &#39;)&#39;)</span><br><span class="line">            &#123;</span><br><span class="line">                startCount++;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                if(startCount &lt; 1)</span><br><span class="line">                &#123;</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line">                startCount--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(startCount !&#x3D; 0)</span><br><span class="line">        &#123;</span><br><span class="line">            answer &#x3D; false;</span><br><span class="line">        &#125;</span><br><span class="line">        return answer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="메모"><a href="#메모" class="headerlink" title="메모"></a>메모</h1><p>스택을 사용해서 풀수도 있다는데 참고만 할 것</p>
 
         </div>
 
@@ -229,7 +222,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://praisebak.github.io/2021/07/06/2021-prev/CRF%20flowchart/">https://praisebak.github.io/2021/07/06/2021-prev/CRF%20flowchart/</a></span>
+                        <span><a href="https://praisebak.github.io/2021/07/06/2021-07/p12909/">https://praisebak.github.io/2021/07/06/2021-07/p12909/</a></span>
                     </p>
                 
                 
@@ -252,10 +245,6 @@
                 <span>Tag(s):</span>
                 <span class="tag">
                     
-                    
-                        <a href="/tags/CRF/"># CRF</a>
-                    
-                        
                 </span>
             </div>
             <div>
@@ -266,10 +255,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/07/06/2021-07/p12909/">2021-07/p12909</a>
+                <a class="prev" rel="prev" href="/2021/07/06/2021-07/p17687/">2021-07/p17687</a>
             
             
-            <a class="next" rel="next" href="/2021/07/06/2021-prev/Finishing%20Crawling%20Project/">Finishing Crawling Project</a>
+            <a class="next" rel="next" href="/2021/07/06/2021-prev/CRF%20flowchart/">CRF flowchart</a>
             
         </section>
 
