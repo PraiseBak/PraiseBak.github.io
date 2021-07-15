@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="PraiseBak">
+
+
+    <meta name="subtitle" content="writing something note">
+
+
+    <meta name="description" content="wanna be a good at programming">
+
+
+
+<title>프로그래머스 2레벨 42860 조이스틱 JAVA | 응애</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">PraiseBak&#39;s Note</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">PraiseBak&#39;s Note</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">프로그래머스 2레벨 42860 조이스틱 JAVA</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">PraiseBak</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">7월 15, 2021&nbsp;&nbsp;20:15:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/algorithm/">algorithm</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>링크 : <a href="https://programmers.co.kr/learn/courses/30/lessons/42860" target="_blank" rel="noopener">https://programmers.co.kr/learn/courses/30/lessons/42860</a></p>
+<p>조이스틱으로 알파벳 이름을 완성하세요. 맨 처음엔 A로만 이루어져 있습니다.<br>ex) 완성해야 하는 이름이 세 글자면 AAA, 네 글자면 AAAA</p>
+<p>조이스틱을 각 방향으로 움직이면 아래와 같습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">▲ - 다음 알파벳</span><br><span class="line">▼ - 이전 알파벳 (A에서 아래쪽으로 이동하면 Z로)</span><br><span class="line">◀ - 커서를 왼쪽으로 이동 (첫 번째 위치에서 왼쪽으로 이동하면 마지막 문자에 커서)</span><br><span class="line">▶ - 커서를 오른쪽으로 이동</span><br></pre></td></tr></table></figure>
+
+<p>예를 들어 아래의 방법으로 “JAZ”를 만들 수 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 첫 번째 위치에서 조이스틱을 위로 9번 조작하여 J를 완성합니다.</span><br><span class="line">- 조이스틱을 왼쪽으로 1번 조작하여 커서를 마지막 문자 위치로 이동시킵니다.</span><br><span class="line">- 마지막 위치에서 조이스틱을 아래로 1번 조작하여 Z를 완성합니다.</span><br><span class="line">따라서 11번 이동시켜 &quot;JAZ&quot;를 만들 수 있고, 이때가 최소 이동입니다.</span><br></pre></td></tr></table></figure>
+
+<p>만들고자 하는 이름 name이 매개변수로 주어질 때, 이름에 대해 조이스틱 조작 횟수의 최솟값을 return 하도록 solution 함수를 만드세요.</p>
+<h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><p>문제 주제가 그리디문제여서 뭔가 그리디로 풀리는지 마음에 확 와닫지는 않았지만</p>
+<p>그리디방식이라고 생각하고 관점을 고정해서 생각해서 풀긴 풀었다.</p>
+<p>뭔가 잘못된 것 처럼 말하는 이유는 문제에 문제점이 제기된 부분이 있어서 인데 다음 글을 참고하기 바란다</p>
+<p><a href="https://velog.io/@hsw0194/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%A1%B0%EC%9D%B4%EC%8A%A4%ED%8B%B1" target="_blank" rel="noopener">https://velog.io/@hsw0194/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%A1%B0%EC%9D%B4%EC%8A%A4%ED%8B%B1</a></p>
+<p>요약하자면 커서를 이동하는데 있어서 왼쪽이나 오른쪽으로 이동할 수 있는데 만약 이동할 거리가 똑같다면</p>
+<p>그리디로 풀었을 땐 아무곳에나 갈 수 있어야 하지만 예를들어 왼쪽을 선택했는데 오른쪽 선택한 것이 총 거리가 적은 경우 등</p>
+<p>그리디로 풀었을 때 정답이 아닐 수 있다는 것이다.</p>
+<p>이 문제에서는 이 경우 왼쪽을 선택했을 때를 정답으로 채택했다고 한다.</p>
+<p>어쨌건 풀이는 각 커서의 알파벳은 초기에 A인 상태로 시작하는데</p>
+<h3 id="첫번째로-고려할-것"><a href="#첫번째로-고려할-것" class="headerlink" title="첫번째로 고려할 것"></a>첫번째로 고려할 것</h3><p>목표 알파벳이 A라면 이미 끝난 것이고 그렇지 않으면 위 조이스틱을 움직여서 알파벳을 찾을지</p>
+<p>아래 조이스틱을 움직여서 알파벳을 찾을지를 판단해야 하는데 둘 중 적게 이동할 수 있는 거리를 반환</p>
+<p>getLessAlphaMove()</p>
+<h3 id="두-번째-고려할-것은"><a href="#두-번째-고려할-것은" class="headerlink" title="두 번째 고려할 것은"></a>두 번째 고려할 것은</h3><p>오른쪽으로 커서를 이동했을 때, 왼쪽으로 커서를 이동했을 때 두가지 경우에 따라 뭐가 더 적은 거리인지 계산하면 된다.</p>
+<p>이는 이미 목표알파벳이 아닌 위치를 찾는 것으로 오른쪽으로 갔을 때, 왼쪽으로 갔을 때 두 가지 경우의 수에 대해</p>
+<p>적게 이동한 거리를 반환하면 된다.</p>
+<p>getLessCursorMove()</p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">boolean</span> visit[];</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getLessAlphaMove</span><span class="params">(<span class="keyword">char</span> curCh,<span class="keyword">char</span> objCh)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//항상 curCh는 A 아니냐</span></span><br><span class="line">        <span class="keyword">int</span> fromRight = <span class="number">26</span>;</span><br><span class="line">        <span class="keyword">int</span> objChIdx = objCh - <span class="number">65</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.min(objChIdx,fromRight - objChIdx);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span>[] getLessCursorMove(<span class="keyword">int</span> curIdx,<span class="keyword">char</span>[] name,<span class="keyword">char</span>[] result)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> resultIdx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> rightMove = curIdx;</span><br><span class="line">        <span class="keyword">int</span> leftMove = curIdx;</span><br><span class="line">        <span class="keyword">int</span> amountLeftMove = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> amountRightMove = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> resultArr[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(result[leftMove] == name[leftMove])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(leftMove == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                leftMove = name.length;</span><br><span class="line">            &#125;</span><br><span class="line">            leftMove--;</span><br><span class="line">            amountLeftMove++;</span><br><span class="line">        &#125;</span><br><span class="line">        resultArr[<span class="number">0</span>] = leftMove;</span><br><span class="line">        resultArr[<span class="number">1</span>] = amountLeftMove;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(result[rightMove] == name[rightMove])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(rightMove == name.length-<span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                rightMove = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            rightMove++;</span><br><span class="line">            amountRightMove++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(amountRightMove &lt; Math.abs(amountLeftMove))</span><br><span class="line">        &#123;</span><br><span class="line">            resultArr[<span class="number">0</span>] = rightMove;</span><br><span class="line">            resultArr[<span class="number">1</span>] = amountRightMove;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resultArr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">solution</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//a에서 obj로가느냐</span></span><br><span class="line">        <span class="comment">//z에서 obj로 가느냐</span></span><br><span class="line">        <span class="comment">//z에서 obj로 가느냐</span></span><br><span class="line">        <span class="keyword">int</span> cursor = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> alphaMove = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cursorMoveAmount = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> move = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span>[] result = <span class="keyword">new</span> <span class="keyword">char</span>[name.length()];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;result.length;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            result[i] = <span class="string">'A'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(!Arrays.equals(result,name.toCharArray()))</span><br><span class="line">        &#123;   </span><br><span class="line">            <span class="keyword">if</span>(name.charAt(cursor) != result[cursor])</span><br><span class="line">            &#123;</span><br><span class="line">                alphaMove = getLessAlphaMove(<span class="string">'A'</span>,name.charAt(cursor));</span><br><span class="line">                result[cursor] = (name.toCharArray())[cursor];</span><br><span class="line">            &#125; </span><br><span class="line">            move+= alphaMove;</span><br><span class="line">            </span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(Arrays.equals(result,name.toCharArray()))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> tmp[] = getLessCursorMove(cursor, name.toCharArray(),result);</span><br><span class="line">            cursor = tmp[<span class="number">0</span>];</span><br><span class="line">            move+= tmp[<span class="number">1</span>];</span><br><span class="line">            alphaMove = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;result.length;i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//System.out.print(result[i]);</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//System.out.println();</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> answer = move;</span><br><span class="line">        <span class="keyword">return</span> answer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//System.out.println(solution("JAZ"));</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<h1 id="메모"><a href="#메모" class="headerlink" title="메모"></a>메모</h1><p>스스로 풀었는가 : &#9989;</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>PraiseBak</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://praisebak.github.io/2021/07/15/2021-07/p42860/">https://praisebak.github.io/2021/07/15/2021-07/p42860/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>wasn't i meant for something better than this?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/algorithm/"># algorithm</a>
+                    
+                        <a href="/tags/java/"># java</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/07/15/2021-07/p42885/">프로그래머스 2레벨 42885 구명보트 JAVA</a>
+            
+            
+            <a class="next" rel="next" href="/2021/07/15/2021-07/p42842/">프로그래머스 2레벨 42842 카펫 JAVA</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© PraiseBak | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
