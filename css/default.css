@@ -11662,43 +11662,6 @@ figure.highlight .section {
     padding: 1.5rem 1rem;
   }
 }
-@media screen and (min-width: 1280px) {
-  .is-1-column .container,
-  .is-2-column .container {
-    max-width: 960px;
-    width: 960px;
-  }
-}
-@media screen and (min-width: 1472px) {
-  .is-2-column .container {
-    max-width: 1152px;
-    width: 1152px;
-  }
-  .is-1-column .container {
-    max-width: 960px;
-    width: 960px;
-  }
-}
-@media screen and (min-width: 769px), print {
-  .is-sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 1.5rem;
-    z-index: 99;
-  }
-  .column-main.is-sticky,
-  .column-left.is-sticky,
-  .column-right.is-sticky,
-  .column-right-shadow.is-sticky {
-    top: 0.75rem;
-    align-self: flex-start;
-  }
-}
-@media screen and (max-width: 768px) {
-  .section {
-    padding: 1.5rem 1rem;
-  }
-}
 #universe {
   display: none;
 }
